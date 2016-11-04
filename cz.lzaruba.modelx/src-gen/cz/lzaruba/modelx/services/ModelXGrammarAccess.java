@@ -31,14 +31,14 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cImportSectionAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cImportSectionXImportSectionParserRuleCall_0_0 = (RuleCall)cImportSectionAssignment_0.eContents().get(0);
 		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cElementsAbstractElementParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		private final RuleCall cElementsPackageDeclarationParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
 		
 		//Model:
 		//	importSection=XImportSection?
-		//	elements+=AbstractElement*;
+		//	elements+=PackageDeclaration*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//importSection=XImportSection? elements+=AbstractElement*
+		//importSection=XImportSection? elements+=PackageDeclaration*
 		public Group getGroup() { return cGroup; }
 		
 		//importSection=XImportSection?
@@ -47,11 +47,11 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 		//XImportSection
 		public RuleCall getImportSectionXImportSectionParserRuleCall_0_0() { return cImportSectionXImportSectionParserRuleCall_0_0; }
 		
-		//elements+=AbstractElement*
+		//elements+=PackageDeclaration*
 		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
 		
-		//AbstractElement
-		public RuleCall getElementsAbstractElementParserRuleCall_1_0() { return cElementsAbstractElementParserRuleCall_1_0; }
+		//PackageDeclaration
+		public RuleCall getElementsPackageDeclarationParserRuleCall_1_0() { return cElementsPackageDeclarationParserRuleCall_1_0; }
 	}
 	public class AbstractElementElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "cz.lzaruba.modelx.ModelX.AbstractElement");
@@ -488,7 +488,7 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Model:
 	//	importSection=XImportSection?
-	//	elements+=AbstractElement*;
+	//	elements+=PackageDeclaration*;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}

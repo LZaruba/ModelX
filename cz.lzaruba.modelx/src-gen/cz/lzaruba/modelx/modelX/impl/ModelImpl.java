@@ -3,9 +3,9 @@
  */
 package cz.lzaruba.modelx.modelX.impl;
 
-import cz.lzaruba.modelx.modelX.AbstractElement;
 import cz.lzaruba.modelx.modelX.Model;
 import cz.lzaruba.modelx.modelX.ModelXPackage;
+import cz.lzaruba.modelx.modelX.PackageDeclaration;
 
 import java.util.Collection;
 
@@ -59,7 +59,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    * @ordered
    */
-  protected EList<AbstractElement> elements;
+  protected EList<PackageDeclaration> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -135,11 +135,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<AbstractElement> getElements()
+  public EList<PackageDeclaration> getElements()
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<AbstractElement>(AbstractElement.class, this, ModelXPackage.MODEL__ELEMENTS);
+      elements = new EObjectContainmentEList<PackageDeclaration>(PackageDeclaration.class, this, ModelXPackage.MODEL__ELEMENTS);
     }
     return elements;
   }
@@ -196,7 +196,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return;
       case ModelXPackage.MODEL__ELEMENTS:
         getElements().clear();
-        getElements().addAll((Collection<? extends AbstractElement>)newValue);
+        getElements().addAll((Collection<? extends PackageDeclaration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

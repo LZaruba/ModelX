@@ -492,7 +492,7 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     ((importSection=XImportSection elements+=AbstractElement+) | elements+=AbstractElement+)?
+	 *     ((importSection=XImportSection elements+=PackageDeclaration+) | elements+=PackageDeclaration+)?
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

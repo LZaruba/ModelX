@@ -98,9 +98,9 @@ ruleModel returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getModelAccess().getElementsAbstractElementParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getModelAccess().getElementsPackageDeclarationParserRuleCall_1_0());
 				}
-				lv_elements_1_0=ruleAbstractElement
+				lv_elements_1_0=rulePackageDeclaration
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getModelRule());
@@ -109,7 +109,7 @@ ruleModel returns [EObject current=null]
 						$current,
 						"elements",
 						lv_elements_1_0,
-						"cz.lzaruba.modelx.ModelX.AbstractElement");
+						"cz.lzaruba.modelx.ModelX.PackageDeclaration");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -376,6 +376,75 @@ ruleDataType returns [EObject current=null]
 				}
 			)
 		)
+	)
+;
+
+// Entry rule entryRulePackageDeclaration
+entryRulePackageDeclaration returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPackageDeclarationRule()); }
+	iv_rulePackageDeclaration=rulePackageDeclaration
+	{ $current=$iv_rulePackageDeclaration.current; }
+	EOF;
+
+// Rule PackageDeclaration
+rulePackageDeclaration returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='package'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getPackageDeclarationAccess().getPackageKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPackageDeclarationAccess().getNameQualifiedNameParserRuleCall_1_0());
+				}
+				lv_name_1_0=ruleQualifiedName
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPackageDeclarationRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.xbase.Xbase.QualifiedName");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2='{'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getPackageDeclarationAccess().getLeftCurlyBracketKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPackageDeclarationAccess().getElementsAbstractElementParserRuleCall_3_0());
+				}
+				lv_elements_3_0=ruleAbstractElement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPackageDeclarationRule());
+					}
+					add(
+						$current,
+						"elements",
+						lv_elements_3_0,
+						"cz.lzaruba.modelx.ModelX.AbstractElement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_4='}'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getPackageDeclarationAccess().getRightCurlyBracketKeyword_4());
+		}
 	)
 ;
 

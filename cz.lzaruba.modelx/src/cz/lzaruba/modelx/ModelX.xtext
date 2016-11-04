@@ -4,7 +4,7 @@ generate modelX "http://www.lzaruba.cz/modelx/ModelX"
 
 Model:
 	importSection=XImportSection?
-	elements+=AbstractElement*;
+	elements+=PackageDeclaration*;
 	
 AbstractElement:
 	Entity | Enum | Interface;
