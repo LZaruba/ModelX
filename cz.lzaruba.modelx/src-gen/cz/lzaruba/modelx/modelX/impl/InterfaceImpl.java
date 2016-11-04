@@ -9,7 +9,6 @@ import cz.lzaruba.modelx.modelX.ModelXPackage;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -17,11 +16,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotation;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link cz.lzaruba.modelx.modelX.impl.InterfaceImpl#getName <em>Name</em>}</li>
+ *   <li>{@link cz.lzaruba.modelx.modelX.impl.InterfaceImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.InterfaceImpl#getSupertypes <em>Supertypes</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.InterfaceImpl#getFeatures <em>Features</em>}</li>
  * </ul>
@@ -41,24 +40,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class InterfaceImpl extends AbstractElementImpl implements Interface
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getAnnotations()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EList<XAnnotation> annotations;
 
   /**
    * The cached value of the '{@link #getSupertypes() <em>Supertypes</em>}' reference list.
@@ -106,22 +95,13 @@ public class InterfaceImpl extends AbstractElementImpl implements Interface
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public EList<XAnnotation> getAnnotations()
   {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelXPackage.INTERFACE__NAME, oldName, name));
+    if (annotations == null)
+    {
+      annotations = new EObjectContainmentEList<XAnnotation>(XAnnotation.class, this, ModelXPackage.INTERFACE__ANNOTATIONS);
+    }
+    return annotations;
   }
 
   /**
@@ -162,6 +142,8 @@ public class InterfaceImpl extends AbstractElementImpl implements Interface
   {
     switch (featureID)
     {
+      case ModelXPackage.INTERFACE__ANNOTATIONS:
+        return ((InternalEList<?>)getAnnotations()).basicRemove(otherEnd, msgs);
       case ModelXPackage.INTERFACE__FEATURES:
         return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
     }
@@ -178,8 +160,8 @@ public class InterfaceImpl extends AbstractElementImpl implements Interface
   {
     switch (featureID)
     {
-      case ModelXPackage.INTERFACE__NAME:
-        return getName();
+      case ModelXPackage.INTERFACE__ANNOTATIONS:
+        return getAnnotations();
       case ModelXPackage.INTERFACE__SUPERTYPES:
         return getSupertypes();
       case ModelXPackage.INTERFACE__FEATURES:
@@ -199,8 +181,9 @@ public class InterfaceImpl extends AbstractElementImpl implements Interface
   {
     switch (featureID)
     {
-      case ModelXPackage.INTERFACE__NAME:
-        setName((String)newValue);
+      case ModelXPackage.INTERFACE__ANNOTATIONS:
+        getAnnotations().clear();
+        getAnnotations().addAll((Collection<? extends XAnnotation>)newValue);
         return;
       case ModelXPackage.INTERFACE__SUPERTYPES:
         getSupertypes().clear();
@@ -224,8 +207,8 @@ public class InterfaceImpl extends AbstractElementImpl implements Interface
   {
     switch (featureID)
     {
-      case ModelXPackage.INTERFACE__NAME:
-        setName(NAME_EDEFAULT);
+      case ModelXPackage.INTERFACE__ANNOTATIONS:
+        getAnnotations().clear();
         return;
       case ModelXPackage.INTERFACE__SUPERTYPES:
         getSupertypes().clear();
@@ -247,31 +230,14 @@ public class InterfaceImpl extends AbstractElementImpl implements Interface
   {
     switch (featureID)
     {
-      case ModelXPackage.INTERFACE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case ModelXPackage.INTERFACE__ANNOTATIONS:
+        return annotations != null && !annotations.isEmpty();
       case ModelXPackage.INTERFACE__SUPERTYPES:
         return supertypes != null && !supertypes.isEmpty();
       case ModelXPackage.INTERFACE__FEATURES:
         return features != null && !features.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //InterfaceImpl

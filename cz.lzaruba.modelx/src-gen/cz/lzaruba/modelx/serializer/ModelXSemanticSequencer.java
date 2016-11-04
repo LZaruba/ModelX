@@ -7,10 +7,10 @@ import com.google.inject.Inject;
 import cz.lzaruba.modelx.modelX.DataType;
 import cz.lzaruba.modelx.modelX.Entity;
 import cz.lzaruba.modelx.modelX.Feature;
+import cz.lzaruba.modelx.modelX.Import;
 import cz.lzaruba.modelx.modelX.Interface;
 import cz.lzaruba.modelx.modelX.Model;
 import cz.lzaruba.modelx.modelX.ModelXPackage;
-import cz.lzaruba.modelx.modelX.PackageDeclaration;
 import cz.lzaruba.modelx.services.ModelXGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -97,14 +97,17 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 			case ModelXPackage.FEATURE:
 				sequence_Feature(context, (Feature) semanticObject); 
 				return; 
+			case ModelXPackage.IMPORT:
+				sequence_Import(context, (Import) semanticObject); 
+				return; 
 			case ModelXPackage.INTERFACE:
 				sequence_Interface(context, (Interface) semanticObject); 
 				return; 
 			case ModelXPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
-			case ModelXPackage.PACKAGE_DECLARATION:
-				sequence_PackageDeclaration(context, (PackageDeclaration) semanticObject); 
+			case ModelXPackage.PACKAGE:
+				sequence_Package(context, (cz.lzaruba.modelx.modelX.Package) semanticObject); 
 				return; 
 			}
 		else if (epackage == TypesPackage.eINSTANCE)
@@ -413,23 +416,14 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     AbstractElement returns DataType
 	 *     DataType returns DataType
-	 *     FeatureType returns DataType
 	 *
 	 * Constraint:
-	 *     (name=ValidID type=JvmParameterizedTypeReference)
+	 *     (comment+=ML_COMMENT? name=ValidID type=JvmParameterizedTypeReference)
 	 */
 	protected void sequence_DataType(ISerializationContext context, DataType semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, ModelXPackage.Literals.DATA_TYPE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelXPackage.Literals.DATA_TYPE__NAME));
-			if (transientValues.isValueTransient(semanticObject, ModelXPackage.Literals.DATA_TYPE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelXPackage.Literals.DATA_TYPE__TYPE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getDataTypeAccess().getNameValidIDParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getDataTypeAccess().getTypeJvmParameterizedTypeReferenceParserRuleCall_3_0(), semanticObject.getType());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -437,10 +431,9 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	 * Contexts:
 	 *     AbstractElement returns Entity
 	 *     Entity returns Entity
-	 *     FeatureType returns Entity
 	 *
 	 * Constraint:
-	 *     (name=ValidID superType=[Entity|ID]? interfaces+=[Interface|ID]* features+=Feature*)
+	 *     (comment+=ML_COMMENT? name=ValidID superType=[Entity|ID]? (interfaces+=[Interface|ID] interfaces+=[Interface|ID]*)? features+=Feature*)
 	 */
 	protected void sequence_Entity(ISerializationContext context, Entity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -451,10 +444,9 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	 * Contexts:
 	 *     AbstractElement returns Enum
 	 *     Enum returns Enum
-	 *     FeatureType returns Enum
 	 *
 	 * Constraint:
-	 *     (name=ValidID literals+=ID*)
+	 *     (comment+=ML_COMMENT? name=ValidID literals+=ID*)
 	 */
 	protected void sequence_Enum(ISerializationContext context, cz.lzaruba.modelx.modelX.Enum semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -466,7 +458,7 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	 *     Feature returns Feature
 	 *
 	 * Constraint:
-	 *     (many?='many'? required?='required' name=ValidID type=[FeatureType|ID])
+	 *     (comment+=ML_COMMENT? many?='many'? required?='required'? name=ValidID type=[AbstractElement|ID])
 	 */
 	protected void sequence_Feature(ISerializationContext context, Feature semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -475,12 +467,29 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	
 	/**
 	 * Contexts:
-	 *     AbstractElement returns Interface
-	 *     Interface returns Interface
-	 *     FeatureType returns Interface
+	 *     Import returns Import
 	 *
 	 * Constraint:
-	 *     (name=ValidID supertypes+=[Interface|ID]* features+=Feature*)
+	 *     importedNamespace=QualifiedNameWithWildcard
+	 */
+	protected void sequence_Import(ISerializationContext context, Import semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ModelXPackage.Literals.IMPORT__IMPORTED_NAMESPACE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelXPackage.Literals.IMPORT__IMPORTED_NAMESPACE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getImportAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns Interface
+	 *     Interface returns Interface
+	 *
+	 * Constraint:
+	 *     (comment+=ML_COMMENT? annotations+=XAnnotation* name=ValidID (supertypes+=[Interface|ID] supertypes+=[Interface|ID]*)? features+=Feature*)
 	 */
 	protected void sequence_Interface(ISerializationContext context, Interface semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -492,7 +501,7 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     ((importSection=XImportSection elements+=PackageDeclaration+) | elements+=PackageDeclaration+)?
+	 *     elements+=Package+
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -501,12 +510,12 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	
 	/**
 	 * Contexts:
-	 *     PackageDeclaration returns PackageDeclaration
+	 *     Package returns Package
 	 *
 	 * Constraint:
-	 *     (name=QualifiedName elements+=AbstractElement*)
+	 *     (comment+=ML_COMMENT? name=QualifiedName imports+=Import* elements+=AbstractElement*)
 	 */
-	protected void sequence_PackageDeclaration(ISerializationContext context, PackageDeclaration semanticObject) {
+	protected void sequence_Package(ISerializationContext context, cz.lzaruba.modelx.modelX.Package semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

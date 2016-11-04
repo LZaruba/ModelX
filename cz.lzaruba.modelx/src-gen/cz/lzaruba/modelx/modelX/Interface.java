@@ -5,6 +5,8 @@ package cz.lzaruba.modelx.modelX;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotation;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Interface</b></em>'.
@@ -14,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link cz.lzaruba.modelx.modelX.Interface#getName <em>Name</em>}</li>
+ *   <li>{@link cz.lzaruba.modelx.modelX.Interface#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.Interface#getSupertypes <em>Supertypes</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.Interface#getFeatures <em>Features</em>}</li>
  * </ul>
@@ -23,33 +25,23 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Interface extends AbstractElement, FeatureType
+public interface Interface extends AbstractElement
 {
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Annotations</b></em>' containment reference list.
+   * The list contents are of type {@link org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotation}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Annotations</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see cz.lzaruba.modelx.modelX.ModelXPackage#getInterface_Name()
-   * @model
+   * @return the value of the '<em>Annotations</em>' containment reference list.
+   * @see cz.lzaruba.modelx.modelX.ModelXPackage#getInterface_Annotations()
+   * @model containment="true"
    * @generated
    */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link cz.lzaruba.modelx.modelX.Interface#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
+  EList<XAnnotation> getAnnotations();
 
   /**
    * Returns the value of the '<em><b>Supertypes</b></em>' reference list.

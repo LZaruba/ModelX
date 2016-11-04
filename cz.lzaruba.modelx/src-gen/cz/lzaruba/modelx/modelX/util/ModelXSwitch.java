@@ -7,11 +7,10 @@ import cz.lzaruba.modelx.modelX.AbstractElement;
 import cz.lzaruba.modelx.modelX.DataType;
 import cz.lzaruba.modelx.modelX.Entity;
 import cz.lzaruba.modelx.modelX.Feature;
-import cz.lzaruba.modelx.modelX.FeatureType;
+import cz.lzaruba.modelx.modelX.Import;
 import cz.lzaruba.modelx.modelX.Interface;
 import cz.lzaruba.modelx.modelX.Model;
 import cz.lzaruba.modelx.modelX.ModelXPackage;
-import cz.lzaruba.modelx.modelX.PackageDeclaration;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -100,7 +99,6 @@ public class ModelXSwitch<T> extends Switch<T>
         Interface interface_ = (Interface)theEObject;
         T result = caseInterface(interface_);
         if (result == null) result = caseAbstractElement(interface_);
-        if (result == null) result = caseFeatureType(interface_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -109,7 +107,6 @@ public class ModelXSwitch<T> extends Switch<T>
         cz.lzaruba.modelx.modelX.Enum enum_ = (cz.lzaruba.modelx.modelX.Enum)theEObject;
         T result = caseEnum(enum_);
         if (result == null) result = caseAbstractElement(enum_);
-        if (result == null) result = caseFeatureType(enum_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -117,14 +114,21 @@ public class ModelXSwitch<T> extends Switch<T>
       {
         DataType dataType = (DataType)theEObject;
         T result = caseDataType(dataType);
-        if (result == null) result = caseFeatureType(dataType);
+        if (result == null) result = caseAbstractElement(dataType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case ModelXPackage.PACKAGE_DECLARATION:
+      case ModelXPackage.IMPORT:
       {
-        PackageDeclaration packageDeclaration = (PackageDeclaration)theEObject;
-        T result = casePackageDeclaration(packageDeclaration);
+        Import import_ = (Import)theEObject;
+        T result = caseImport(import_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ModelXPackage.PACKAGE:
+      {
+        cz.lzaruba.modelx.modelX.Package package_ = (cz.lzaruba.modelx.modelX.Package)theEObject;
+        T result = casePackage(package_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -133,7 +137,6 @@ public class ModelXSwitch<T> extends Switch<T>
         Entity entity = (Entity)theEObject;
         T result = caseEntity(entity);
         if (result == null) result = caseAbstractElement(entity);
-        if (result == null) result = caseFeatureType(entity);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -141,13 +144,6 @@ public class ModelXSwitch<T> extends Switch<T>
       {
         Feature feature = (Feature)theEObject;
         T result = caseFeature(feature);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case ModelXPackage.FEATURE_TYPE:
-      {
-        FeatureType featureType = (FeatureType)theEObject;
-        T result = caseFeatureType(featureType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -236,17 +232,33 @@ public class ModelXSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Package Declaration</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Package Declaration</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Import</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePackageDeclaration(PackageDeclaration object)
+  public T caseImport(Import object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Package</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePackage(cz.lzaruba.modelx.modelX.Package object)
   {
     return null;
   }
@@ -279,22 +291,6 @@ public class ModelXSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFeature(Feature object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Feature Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Feature Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFeatureType(FeatureType object)
   {
     return null;
   }

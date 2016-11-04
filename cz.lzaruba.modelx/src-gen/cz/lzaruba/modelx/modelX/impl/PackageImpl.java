@@ -4,8 +4,8 @@
 package cz.lzaruba.modelx.modelX.impl;
 
 import cz.lzaruba.modelx.modelX.AbstractElement;
+import cz.lzaruba.modelx.modelX.Import;
 import cz.lzaruba.modelx.modelX.ModelXPackage;
-import cz.lzaruba.modelx.modelX.PackageDeclaration;
 
 import java.util.Collection;
 
@@ -20,25 +20,38 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Package Declaration</b></em>'.
+ * An implementation of the model object '<em><b>Package</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link cz.lzaruba.modelx.modelX.impl.PackageDeclarationImpl#getName <em>Name</em>}</li>
- *   <li>{@link cz.lzaruba.modelx.modelX.impl.PackageDeclarationImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link cz.lzaruba.modelx.modelX.impl.PackageImpl#getComment <em>Comment</em>}</li>
+ *   <li>{@link cz.lzaruba.modelx.modelX.impl.PackageImpl#getName <em>Name</em>}</li>
+ *   <li>{@link cz.lzaruba.modelx.modelX.impl.PackageImpl#getImports <em>Imports</em>}</li>
+ *   <li>{@link cz.lzaruba.modelx.modelX.impl.PackageImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PackageDeclarationImpl extends MinimalEObjectImpl.Container implements PackageDeclaration
+public class PackageImpl extends MinimalEObjectImpl.Container implements cz.lzaruba.modelx.modelX.Package
 {
+  /**
+   * The cached value of the '{@link #getComment() <em>Comment</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getComment()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> comment;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -60,6 +73,16 @@ public class PackageDeclarationImpl extends MinimalEObjectImpl.Container impleme
   protected String name = NAME_EDEFAULT;
 
   /**
+   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImports()
+   * @generated
+   * @ordered
+   */
+  protected EList<Import> imports;
+
+  /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -74,7 +97,7 @@ public class PackageDeclarationImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PackageDeclarationImpl()
+  protected PackageImpl()
   {
     super();
   }
@@ -87,7 +110,21 @@ public class PackageDeclarationImpl extends MinimalEObjectImpl.Container impleme
   @Override
   protected EClass eStaticClass()
   {
-    return ModelXPackage.Literals.PACKAGE_DECLARATION;
+    return ModelXPackage.Literals.PACKAGE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getComment()
+  {
+    if (comment == null)
+    {
+      comment = new EDataTypeEList<String>(String.class, this, ModelXPackage.PACKAGE__COMMENT);
+    }
+    return comment;
   }
 
   /**
@@ -110,7 +147,21 @@ public class PackageDeclarationImpl extends MinimalEObjectImpl.Container impleme
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelXPackage.PACKAGE_DECLARATION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelXPackage.PACKAGE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Import> getImports()
+  {
+    if (imports == null)
+    {
+      imports = new EObjectContainmentEList<Import>(Import.class, this, ModelXPackage.PACKAGE__IMPORTS);
+    }
+    return imports;
   }
 
   /**
@@ -122,7 +173,7 @@ public class PackageDeclarationImpl extends MinimalEObjectImpl.Container impleme
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<AbstractElement>(AbstractElement.class, this, ModelXPackage.PACKAGE_DECLARATION__ELEMENTS);
+      elements = new EObjectContainmentEList<AbstractElement>(AbstractElement.class, this, ModelXPackage.PACKAGE__ELEMENTS);
     }
     return elements;
   }
@@ -137,7 +188,9 @@ public class PackageDeclarationImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case ModelXPackage.PACKAGE_DECLARATION__ELEMENTS:
+      case ModelXPackage.PACKAGE__IMPORTS:
+        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
+      case ModelXPackage.PACKAGE__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -153,9 +206,13 @@ public class PackageDeclarationImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case ModelXPackage.PACKAGE_DECLARATION__NAME:
+      case ModelXPackage.PACKAGE__COMMENT:
+        return getComment();
+      case ModelXPackage.PACKAGE__NAME:
         return getName();
-      case ModelXPackage.PACKAGE_DECLARATION__ELEMENTS:
+      case ModelXPackage.PACKAGE__IMPORTS:
+        return getImports();
+      case ModelXPackage.PACKAGE__ELEMENTS:
         return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -172,10 +229,18 @@ public class PackageDeclarationImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case ModelXPackage.PACKAGE_DECLARATION__NAME:
+      case ModelXPackage.PACKAGE__COMMENT:
+        getComment().clear();
+        getComment().addAll((Collection<? extends String>)newValue);
+        return;
+      case ModelXPackage.PACKAGE__NAME:
         setName((String)newValue);
         return;
-      case ModelXPackage.PACKAGE_DECLARATION__ELEMENTS:
+      case ModelXPackage.PACKAGE__IMPORTS:
+        getImports().clear();
+        getImports().addAll((Collection<? extends Import>)newValue);
+        return;
+      case ModelXPackage.PACKAGE__ELEMENTS:
         getElements().clear();
         getElements().addAll((Collection<? extends AbstractElement>)newValue);
         return;
@@ -193,10 +258,16 @@ public class PackageDeclarationImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case ModelXPackage.PACKAGE_DECLARATION__NAME:
+      case ModelXPackage.PACKAGE__COMMENT:
+        getComment().clear();
+        return;
+      case ModelXPackage.PACKAGE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case ModelXPackage.PACKAGE_DECLARATION__ELEMENTS:
+      case ModelXPackage.PACKAGE__IMPORTS:
+        getImports().clear();
+        return;
+      case ModelXPackage.PACKAGE__ELEMENTS:
         getElements().clear();
         return;
     }
@@ -213,9 +284,13 @@ public class PackageDeclarationImpl extends MinimalEObjectImpl.Container impleme
   {
     switch (featureID)
     {
-      case ModelXPackage.PACKAGE_DECLARATION__NAME:
+      case ModelXPackage.PACKAGE__COMMENT:
+        return comment != null && !comment.isEmpty();
+      case ModelXPackage.PACKAGE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case ModelXPackage.PACKAGE_DECLARATION__ELEMENTS:
+      case ModelXPackage.PACKAGE__IMPORTS:
+        return imports != null && !imports.isEmpty();
+      case ModelXPackage.PACKAGE__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -232,10 +307,12 @@ public class PackageDeclarationImpl extends MinimalEObjectImpl.Container impleme
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (comment: ");
+    result.append(comment);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();
   }
 
-} //PackageDeclarationImpl
+} //PackageImpl

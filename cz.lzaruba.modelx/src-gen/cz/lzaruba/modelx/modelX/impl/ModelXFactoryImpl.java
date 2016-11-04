@@ -7,12 +7,11 @@ import cz.lzaruba.modelx.modelX.AbstractElement;
 import cz.lzaruba.modelx.modelX.DataType;
 import cz.lzaruba.modelx.modelX.Entity;
 import cz.lzaruba.modelx.modelX.Feature;
-import cz.lzaruba.modelx.modelX.FeatureType;
+import cz.lzaruba.modelx.modelX.Import;
 import cz.lzaruba.modelx.modelX.Interface;
 import cz.lzaruba.modelx.modelX.Model;
 import cz.lzaruba.modelx.modelX.ModelXFactory;
 import cz.lzaruba.modelx.modelX.ModelXPackage;
-import cz.lzaruba.modelx.modelX.PackageDeclaration;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -79,10 +78,10 @@ public class ModelXFactoryImpl extends EFactoryImpl implements ModelXFactory
       case ModelXPackage.INTERFACE: return createInterface();
       case ModelXPackage.ENUM: return createEnum();
       case ModelXPackage.DATA_TYPE: return createDataType();
-      case ModelXPackage.PACKAGE_DECLARATION: return createPackageDeclaration();
+      case ModelXPackage.IMPORT: return createImport();
+      case ModelXPackage.PACKAGE: return createPackage();
       case ModelXPackage.ENTITY: return createEntity();
       case ModelXPackage.FEATURE: return createFeature();
-      case ModelXPackage.FEATURE_TYPE: return createFeatureType();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -148,10 +147,21 @@ public class ModelXFactoryImpl extends EFactoryImpl implements ModelXFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public PackageDeclaration createPackageDeclaration()
+  public Import createImport()
   {
-    PackageDeclarationImpl packageDeclaration = new PackageDeclarationImpl();
-    return packageDeclaration;
+    ImportImpl import_ = new ImportImpl();
+    return import_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public cz.lzaruba.modelx.modelX.Package createPackage()
+  {
+    PackageImpl package_ = new PackageImpl();
+    return package_;
   }
 
   /**
@@ -174,17 +184,6 @@ public class ModelXFactoryImpl extends EFactoryImpl implements ModelXFactory
   {
     FeatureImpl feature = new FeatureImpl();
     return feature;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FeatureType createFeatureType()
-  {
-    FeatureTypeImpl featureType = new FeatureTypeImpl();
-    return featureType;
   }
 
   /**

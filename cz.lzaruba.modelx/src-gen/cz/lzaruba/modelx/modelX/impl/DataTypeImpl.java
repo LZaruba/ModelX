@@ -24,34 +24,13 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link cz.lzaruba.modelx.modelX.impl.DataTypeImpl#getName <em>Name</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.DataTypeImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DataTypeImpl extends FeatureTypeImpl implements DataType
+public class DataTypeImpl extends AbstractElementImpl implements DataType
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -81,29 +60,6 @@ public class DataTypeImpl extends FeatureTypeImpl implements DataType
   protected EClass eStaticClass()
   {
     return ModelXPackage.Literals.DATA_TYPE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelXPackage.DATA_TYPE__NAME, oldName, name));
   }
 
   /**
@@ -180,8 +136,6 @@ public class DataTypeImpl extends FeatureTypeImpl implements DataType
   {
     switch (featureID)
     {
-      case ModelXPackage.DATA_TYPE__NAME:
-        return getName();
       case ModelXPackage.DATA_TYPE__TYPE:
         return getType();
     }
@@ -198,9 +152,6 @@ public class DataTypeImpl extends FeatureTypeImpl implements DataType
   {
     switch (featureID)
     {
-      case ModelXPackage.DATA_TYPE__NAME:
-        setName((String)newValue);
-        return;
       case ModelXPackage.DATA_TYPE__TYPE:
         setType((JvmParameterizedTypeReference)newValue);
         return;
@@ -218,9 +169,6 @@ public class DataTypeImpl extends FeatureTypeImpl implements DataType
   {
     switch (featureID)
     {
-      case ModelXPackage.DATA_TYPE__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case ModelXPackage.DATA_TYPE__TYPE:
         setType((JvmParameterizedTypeReference)null);
         return;
@@ -238,29 +186,10 @@ public class DataTypeImpl extends FeatureTypeImpl implements DataType
   {
     switch (featureID)
     {
-      case ModelXPackage.DATA_TYPE__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case ModelXPackage.DATA_TYPE__TYPE:
         return type != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //DataTypeImpl

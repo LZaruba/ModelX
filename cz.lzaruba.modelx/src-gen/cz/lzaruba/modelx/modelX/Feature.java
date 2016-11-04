@@ -3,6 +3,8 @@
  */
 package cz.lzaruba.modelx.modelX;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link cz.lzaruba.modelx.modelX.Feature#getComment <em>Comment</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.Feature#isMany <em>Many</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.Feature#isRequired <em>Required</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.Feature#getName <em>Name</em>}</li>
@@ -26,6 +29,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Feature extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Comment</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Comment</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Comment</em>' attribute list.
+   * @see cz.lzaruba.modelx.modelX.ModelXPackage#getFeature_Comment()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getComment();
+
   /**
    * Returns the value of the '<em><b>Many</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -113,12 +132,12 @@ public interface Feature extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' reference.
-   * @see #setType(FeatureType)
+   * @see #setType(AbstractElement)
    * @see cz.lzaruba.modelx.modelX.ModelXPackage#getFeature_Type()
    * @model
    * @generated
    */
-  FeatureType getType();
+  AbstractElement getType();
 
   /**
    * Sets the value of the '{@link cz.lzaruba.modelx.modelX.Feature#getType <em>Type</em>}' reference.
@@ -128,6 +147,6 @@ public interface Feature extends EObject
    * @see #getType()
    * @generated
    */
-  void setType(FeatureType value);
+  void setType(AbstractElement value);
 
 } // Feature

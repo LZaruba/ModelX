@@ -3,7 +3,6 @@
  */
 package cz.lzaruba.modelx.scoping
 
-
 /**
  * This class contains custom scoping description.
  * 
@@ -11,5 +10,5 @@ package cz.lzaruba.modelx.scoping
  * on how and when to use it.
  */
 class ModelXScopeProvider extends AbstractModelXScopeProvider {
-
+	
 }

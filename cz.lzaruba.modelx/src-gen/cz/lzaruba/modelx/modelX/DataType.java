@@ -14,7 +14,6 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link cz.lzaruba.modelx.modelX.DataType#getName <em>Name</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.DataType#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -22,34 +21,8 @@ import org.eclipse.xtext.common.types.JvmParameterizedTypeReference;
  * @model
  * @generated
  */
-public interface DataType extends FeatureType
+public interface DataType extends AbstractElement
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see cz.lzaruba.modelx.modelX.ModelXPackage#getDataType_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link cz.lzaruba.modelx.modelX.DataType#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->

@@ -7,12 +7,11 @@ import cz.lzaruba.modelx.modelX.AbstractElement;
 import cz.lzaruba.modelx.modelX.DataType;
 import cz.lzaruba.modelx.modelX.Entity;
 import cz.lzaruba.modelx.modelX.Feature;
-import cz.lzaruba.modelx.modelX.FeatureType;
+import cz.lzaruba.modelx.modelX.Import;
 import cz.lzaruba.modelx.modelX.Interface;
 import cz.lzaruba.modelx.modelX.Model;
 import cz.lzaruba.modelx.modelX.ModelXFactory;
 import cz.lzaruba.modelx.modelX.ModelXPackage;
-import cz.lzaruba.modelx.modelX.PackageDeclaration;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -23,7 +22,9 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.xtext.common.types.TypesPackage;
 
-import org.eclipse.xtext.xtype.XtypePackage;
+import org.eclipse.xtext.xbase.XbasePackage;
+
+import org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotationsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,7 +74,14 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass packageDeclarationEClass = null;
+  private EClass importEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass packageEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -88,13 +96,6 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * @generated
    */
   private EClass featureEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass featureTypeEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -145,7 +146,8 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
     isInited = true;
 
     // Initialize simple dependencies
-    XtypePackage.eINSTANCE.eClass();
+    XAnnotationsPackage.eINSTANCE.eClass();
+    XbasePackage.eINSTANCE.eClass();
 
     // Create package meta-data objects
     theModelXPackage.createPackageContents();
@@ -177,19 +179,9 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_ImportSection()
-  {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getModel_Elements()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(1);
+    return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -207,6 +199,26 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getAbstractElement_Comment()
+  {
+    return (EAttribute)abstractElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAbstractElement_Name()
+  {
+    return (EAttribute)abstractElementEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getInterface()
   {
     return interfaceEClass;
@@ -217,9 +229,9 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getInterface_Name()
+  public EReference getInterface_Annotations()
   {
-    return (EAttribute)interfaceEClass.getEStructuralFeatures().get(0);
+    return (EReference)interfaceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -257,19 +269,9 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEnum_Name()
-  {
-    return (EAttribute)enumEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getEnum_Literals()
   {
-    return (EAttribute)enumEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)enumEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -287,19 +289,9 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDataType_Name()
-  {
-    return (EAttribute)dataTypeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getDataType_Type()
   {
-    return (EReference)dataTypeEClass.getEStructuralFeatures().get(1);
+    return (EReference)dataTypeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -307,9 +299,9 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPackageDeclaration()
+  public EClass getImport()
   {
-    return packageDeclarationEClass;
+    return importEClass;
   }
 
   /**
@@ -317,9 +309,9 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getPackageDeclaration_Name()
+  public EAttribute getImport_ImportedNamespace()
   {
-    return (EAttribute)packageDeclarationEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)importEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -327,9 +319,49 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackageDeclaration_Elements()
+  public EClass getPackage()
   {
-    return (EReference)packageDeclarationEClass.getEStructuralFeatures().get(1);
+    return packageEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPackage_Comment()
+  {
+    return (EAttribute)packageEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPackage_Name()
+  {
+    return (EAttribute)packageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackage_Imports()
+  {
+    return (EReference)packageEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackage_Elements()
+  {
+    return (EReference)packageEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -347,19 +379,9 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEntity_Name()
-  {
-    return (EAttribute)entityEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getEntity_SuperType()
   {
-    return (EReference)entityEClass.getEStructuralFeatures().get(1);
+    return (EReference)entityEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -369,7 +391,7 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    */
   public EReference getEntity_Interfaces()
   {
-    return (EReference)entityEClass.getEStructuralFeatures().get(2);
+    return (EReference)entityEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -379,7 +401,7 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    */
   public EReference getEntity_Features()
   {
-    return (EReference)entityEClass.getEStructuralFeatures().get(3);
+    return (EReference)entityEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -397,7 +419,7 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeature_Many()
+  public EAttribute getFeature_Comment()
   {
     return (EAttribute)featureEClass.getEStructuralFeatures().get(0);
   }
@@ -407,7 +429,7 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeature_Required()
+  public EAttribute getFeature_Many()
   {
     return (EAttribute)featureEClass.getEStructuralFeatures().get(1);
   }
@@ -417,7 +439,7 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeature_Name()
+  public EAttribute getFeature_Required()
   {
     return (EAttribute)featureEClass.getEStructuralFeatures().get(2);
   }
@@ -427,9 +449,9 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFeature_Type()
+  public EAttribute getFeature_Name()
   {
-    return (EReference)featureEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)featureEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -437,9 +459,9 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFeatureType()
+  public EReference getFeature_Type()
   {
-    return featureTypeEClass;
+    return (EReference)featureEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -473,41 +495,43 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__IMPORT_SECTION);
     createEReference(modelEClass, MODEL__ELEMENTS);
 
     abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
+    createEAttribute(abstractElementEClass, ABSTRACT_ELEMENT__COMMENT);
+    createEAttribute(abstractElementEClass, ABSTRACT_ELEMENT__NAME);
 
     interfaceEClass = createEClass(INTERFACE);
-    createEAttribute(interfaceEClass, INTERFACE__NAME);
+    createEReference(interfaceEClass, INTERFACE__ANNOTATIONS);
     createEReference(interfaceEClass, INTERFACE__SUPERTYPES);
     createEReference(interfaceEClass, INTERFACE__FEATURES);
 
     enumEClass = createEClass(ENUM);
-    createEAttribute(enumEClass, ENUM__NAME);
     createEAttribute(enumEClass, ENUM__LITERALS);
 
     dataTypeEClass = createEClass(DATA_TYPE);
-    createEAttribute(dataTypeEClass, DATA_TYPE__NAME);
     createEReference(dataTypeEClass, DATA_TYPE__TYPE);
 
-    packageDeclarationEClass = createEClass(PACKAGE_DECLARATION);
-    createEAttribute(packageDeclarationEClass, PACKAGE_DECLARATION__NAME);
-    createEReference(packageDeclarationEClass, PACKAGE_DECLARATION__ELEMENTS);
+    importEClass = createEClass(IMPORT);
+    createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
+
+    packageEClass = createEClass(PACKAGE);
+    createEAttribute(packageEClass, PACKAGE__COMMENT);
+    createEAttribute(packageEClass, PACKAGE__NAME);
+    createEReference(packageEClass, PACKAGE__IMPORTS);
+    createEReference(packageEClass, PACKAGE__ELEMENTS);
 
     entityEClass = createEClass(ENTITY);
-    createEAttribute(entityEClass, ENTITY__NAME);
     createEReference(entityEClass, ENTITY__SUPER_TYPE);
     createEReference(entityEClass, ENTITY__INTERFACES);
     createEReference(entityEClass, ENTITY__FEATURES);
 
     featureEClass = createEClass(FEATURE);
+    createEAttribute(featureEClass, FEATURE__COMMENT);
     createEAttribute(featureEClass, FEATURE__MANY);
     createEAttribute(featureEClass, FEATURE__REQUIRED);
     createEAttribute(featureEClass, FEATURE__NAME);
     createEReference(featureEClass, FEATURE__TYPE);
-
-    featureTypeEClass = createEClass(FEATURE_TYPE);
   }
 
   /**
@@ -535,7 +559,7 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
     setNsURI(eNS_URI);
 
     // Obtain other dependent packages
-    XtypePackage theXtypePackage = (XtypePackage)EPackage.Registry.INSTANCE.getEPackage(XtypePackage.eNS_URI);
+    XAnnotationsPackage theXAnnotationsPackage = (XAnnotationsPackage)EPackage.Registry.INSTANCE.getEPackage(XAnnotationsPackage.eNS_URI);
     TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
 
     // Create type parameters
@@ -544,50 +568,49 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
 
     // Add supertypes to classes
     interfaceEClass.getESuperTypes().add(this.getAbstractElement());
-    interfaceEClass.getESuperTypes().add(this.getFeatureType());
     enumEClass.getESuperTypes().add(this.getAbstractElement());
-    enumEClass.getESuperTypes().add(this.getFeatureType());
-    dataTypeEClass.getESuperTypes().add(this.getFeatureType());
+    dataTypeEClass.getESuperTypes().add(this.getAbstractElement());
     entityEClass.getESuperTypes().add(this.getAbstractElement());
-    entityEClass.getESuperTypes().add(this.getFeatureType());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_ImportSection(), theXtypePackage.getXImportSection(), null, "importSection", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModel_Elements(), this.getPackageDeclaration(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Elements(), this.getPackage(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAbstractElement_Comment(), ecorePackage.getEString(), "comment", null, 0, -1, AbstractElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAbstractElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, AbstractElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getInterface_Name(), ecorePackage.getEString(), "name", null, 0, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInterface_Annotations(), theXAnnotationsPackage.getXAnnotation(), null, "annotations", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterface_Supertypes(), this.getInterface(), null, "supertypes", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterface_Features(), this.getFeature(), null, "features", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumEClass, cz.lzaruba.modelx.modelX.Enum.class, "Enum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEnum_Name(), ecorePackage.getEString(), "name", null, 0, 1, cz.lzaruba.modelx.modelX.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEnum_Literals(), ecorePackage.getEString(), "literals", null, 0, -1, cz.lzaruba.modelx.modelX.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataTypeEClass, DataType.class, "DataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDataType_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataType_Type(), theTypesPackage.getJvmParameterizedTypeReference(), null, "type", null, 0, 1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(packageDeclarationEClass, PackageDeclaration.class, "PackageDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getPackageDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, PackageDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPackageDeclaration_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, PackageDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(packageEClass, cz.lzaruba.modelx.modelX.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPackage_Comment(), ecorePackage.getEString(), "comment", null, 0, -1, cz.lzaruba.modelx.modelX.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, cz.lzaruba.modelx.modelX.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackage_Imports(), this.getImport(), null, "imports", null, 0, -1, cz.lzaruba.modelx.modelX.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackage_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, cz.lzaruba.modelx.modelX.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEntity_Name(), ecorePackage.getEString(), "name", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_SuperType(), this.getEntity(), null, "superType", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_Interfaces(), this.getInterface(), null, "interfaces", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_Features(), this.getFeature(), null, "features", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFeature_Comment(), ecorePackage.getEString(), "comment", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_Many(), ecorePackage.getEBoolean(), "many", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_Required(), ecorePackage.getEBoolean(), "required", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_Name(), ecorePackage.getEString(), "name", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeature_Type(), this.getFeatureType(), null, "type", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(featureTypeEClass, FeatureType.class, "FeatureType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFeature_Type(), this.getAbstractElement(), null, "type", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

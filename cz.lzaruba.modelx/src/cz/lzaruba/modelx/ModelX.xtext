@@ -3,42 +3,48 @@ grammar cz.lzaruba.modelx.ModelX with org.eclipse.xtext.xbase.annotations.XbaseW
 generate modelX "http://www.lzaruba.cz/modelx/ModelX"
 
 Model:
-	importSection=XImportSection?
-	elements+=PackageDeclaration*;
+	elements+=Package*;
 	
 AbstractElement:
-	Entity | Enum | Interface;
-
-// TODO separate interface super types by comma
+	Entity | Enum | Interface | DataType;
+	
 Interface:
-	'interface' name=ValidID ('extends' supertypes+=[Interface]*)? '{'
+	(comment+=ML_COMMENT)?
+	(annotations+=XAnnotation)*
+	'interface' name=ValidID ('extends' supertypes+=[Interface] (',' supertypes+=[Interface])*)? '{'
 		features+=Feature*
 	'}'
 ;
 
 Enum:
-	name=ValidID '{'
+	(comment+=ML_COMMENT)?
+	'enum' name=ValidID '{'
 		literals+=ID*
 	'}'
 ;
 
 DataType:
-	'dataType' name=ValidID ':' type=JvmParameterizedTypeReference
+	(comment+=ML_COMMENT)?
+	'datatype' name=ValidID ':' type=JvmParameterizedTypeReference
 ;
 
-PackageDeclaration:
+Import:
+    'import' importedNamespace=QualifiedNameWithWildcard;
+
+Package:
+	(comment+=ML_COMMENT)?
 	'package' name=QualifiedName '{'
+		imports+=Import*
 		elements+=AbstractElement*
 	'}';
 
 Entity:
-	'entity' name=ValidID ('extends' superType=[Entity])? ('implements' interfaces+=[Interface]+)? '{'
+	(comment+=ML_COMMENT)?
+	'entity' name=ValidID ('extends' superType=[Entity])? ('implements' interfaces+=[Interface] (',' interfaces+=[Interface])*)? '{'
 		features+=Feature*
 	'}';
 
 Feature:
-	(many?='many')? (required?='required') name=ValidID ':' type=[FeatureType];
+	(comment+=ML_COMMENT)?
+	(many?='many')? (required?='required')? name=ValidID ':' type=[AbstractElement];
 	
-FeatureType:
-	Entity | Interface | DataType | Enum
-;

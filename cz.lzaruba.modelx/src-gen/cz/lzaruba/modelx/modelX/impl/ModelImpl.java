@@ -5,11 +5,9 @@ package cz.lzaruba.modelx.modelX.impl;
 
 import cz.lzaruba.modelx.modelX.Model;
 import cz.lzaruba.modelx.modelX.ModelXPackage;
-import cz.lzaruba.modelx.modelX.PackageDeclaration;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -17,13 +15,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import org.eclipse.xtext.xtype.XImportSection;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +28,6 @@ import org.eclipse.xtext.xtype.XImportSection;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link cz.lzaruba.modelx.modelX.impl.ModelImpl#getImportSection <em>Import Section</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.ModelImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
@@ -42,16 +36,6 @@ import org.eclipse.xtext.xtype.XImportSection;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getImportSection() <em>Import Section</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImportSection()
-   * @generated
-   * @ordered
-   */
-  protected XImportSection importSection;
-
-  /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -59,7 +43,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    * @ordered
    */
-  protected EList<PackageDeclaration> elements;
+  protected EList<cz.lzaruba.modelx.modelX.Package> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -87,59 +71,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public XImportSection getImportSection()
-  {
-    return importSection;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetImportSection(XImportSection newImportSection, NotificationChain msgs)
-  {
-    XImportSection oldImportSection = importSection;
-    importSection = newImportSection;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ModelXPackage.MODEL__IMPORT_SECTION, oldImportSection, newImportSection);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setImportSection(XImportSection newImportSection)
-  {
-    if (newImportSection != importSection)
-    {
-      NotificationChain msgs = null;
-      if (importSection != null)
-        msgs = ((InternalEObject)importSection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ModelXPackage.MODEL__IMPORT_SECTION, null, msgs);
-      if (newImportSection != null)
-        msgs = ((InternalEObject)newImportSection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ModelXPackage.MODEL__IMPORT_SECTION, null, msgs);
-      msgs = basicSetImportSection(newImportSection, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelXPackage.MODEL__IMPORT_SECTION, newImportSection, newImportSection));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<PackageDeclaration> getElements()
+  public EList<cz.lzaruba.modelx.modelX.Package> getElements()
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<PackageDeclaration>(PackageDeclaration.class, this, ModelXPackage.MODEL__ELEMENTS);
+      elements = new EObjectContainmentEList<cz.lzaruba.modelx.modelX.Package>(cz.lzaruba.modelx.modelX.Package.class, this, ModelXPackage.MODEL__ELEMENTS);
     }
     return elements;
   }
@@ -154,8 +90,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case ModelXPackage.MODEL__IMPORT_SECTION:
-        return basicSetImportSection(null, msgs);
       case ModelXPackage.MODEL__ELEMENTS:
         return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
@@ -172,8 +106,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case ModelXPackage.MODEL__IMPORT_SECTION:
-        return getImportSection();
       case ModelXPackage.MODEL__ELEMENTS:
         return getElements();
     }
@@ -191,12 +123,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case ModelXPackage.MODEL__IMPORT_SECTION:
-        setImportSection((XImportSection)newValue);
-        return;
       case ModelXPackage.MODEL__ELEMENTS:
         getElements().clear();
-        getElements().addAll((Collection<? extends PackageDeclaration>)newValue);
+        getElements().addAll((Collection<? extends cz.lzaruba.modelx.modelX.Package>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -212,9 +141,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case ModelXPackage.MODEL__IMPORT_SECTION:
-        setImportSection((XImportSection)null);
-        return;
       case ModelXPackage.MODEL__ELEMENTS:
         getElements().clear();
         return;
@@ -232,8 +158,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case ModelXPackage.MODEL__IMPORT_SECTION:
-        return importSection != null;
       case ModelXPackage.MODEL__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }

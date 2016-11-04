@@ -34,7 +34,6 @@ import org.eclipse.xtext.common.types.ui.query.IJavaSearchParticipation;
 import org.eclipse.xtext.common.types.ui.refactoring.JdtRenameSupport;
 import org.eclipse.xtext.common.types.ui.refactoring.participant.JdtRenameParticipant;
 import org.eclipse.xtext.common.types.ui.refactoring.participant.JvmMemberRenameStrategy;
-import org.eclipse.xtext.common.types.xtext.ui.ITypesProposalProvider;
 import org.eclipse.xtext.generator.IContextualOutputConfigurationProvider;
 import org.eclipse.xtext.ide.LexerIdeBindings;
 import org.eclipse.xtext.ide.editor.contentassist.antlr.IContentAssistParser;
@@ -76,7 +75,6 @@ import org.eclipse.xtext.ui.editor.outline.impl.IOutlineTreeStructureProvider;
 import org.eclipse.xtext.ui.editor.outline.impl.OutlineNodeElementOpener;
 import org.eclipse.xtext.ui.editor.preferences.IPreferenceStoreInitializer;
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionProvider;
-import org.eclipse.xtext.ui.editor.templates.XtextTemplateContextType;
 import org.eclipse.xtext.ui.editor.templates.XtextTemplatePreferencePage;
 import org.eclipse.xtext.ui.generator.trace.OpenGeneratedFileHandler;
 import org.eclipse.xtext.ui.refactoring.IDependentElementsCalculator;
@@ -90,12 +88,9 @@ import org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferences;
 import org.eclipse.xtext.ui.resource.ResourceServiceDescriptionLabelProvider;
 import org.eclipse.xtext.ui.shared.Access;
 import org.eclipse.xtext.xbase.annotations.ui.DefaultXbaseWithAnnotationsUiModule;
-import org.eclipse.xtext.xbase.imports.IUnresolvedTypeResolver;
-import org.eclipse.xtext.xbase.ui.contentassist.ImportingTypesProposalProvider;
 import org.eclipse.xtext.xbase.ui.editor.XbaseDocumentProvider;
 import org.eclipse.xtext.xbase.ui.editor.XbaseEditor;
 import org.eclipse.xtext.xbase.ui.generator.trace.XbaseOpenGeneratedFileHandler;
-import org.eclipse.xtext.xbase.ui.imports.InteractiveUnresolvedTypeResolver;
 import org.eclipse.xtext.xbase.ui.jvmmodel.findrefs.JvmModelFindReferenceHandler;
 import org.eclipse.xtext.xbase.ui.jvmmodel.findrefs.JvmModelReferenceQueryExecutor;
 import org.eclipse.xtext.xbase.ui.jvmmodel.navigation.DerivedMemberAwareEditorOpener;
@@ -105,8 +100,9 @@ import org.eclipse.xtext.xbase.ui.jvmmodel.refactoring.JvmModelDependentElements
 import org.eclipse.xtext.xbase.ui.jvmmodel.refactoring.JvmModelJdtRenameParticipantContext;
 import org.eclipse.xtext.xbase.ui.jvmmodel.refactoring.jdt.CombinedJvmJdtRenameContextFactory;
 import org.eclipse.xtext.xbase.ui.jvmmodel.refactoring.jdt.CombinedJvmJdtRenameRefactoringProvider;
+import org.eclipse.xtext.xbase.ui.quickfix.JavaTypeQuickfixes;
+import org.eclipse.xtext.xbase.ui.quickfix.JavaTypeQuickfixesNoImportSection;
 import org.eclipse.xtext.xbase.ui.refactoring.XbaseReferenceUpdater;
-import org.eclipse.xtext.xbase.ui.templates.XbaseTemplateContextType;
 
 /**
  * Manual modifications go to {@link ModelXUiModule}.
@@ -342,18 +338,8 @@ public abstract class AbstractModelXUiModule extends DefaultXbaseWithAnnotations
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.xbase.XbaseGeneratorFragment2
-	public Class<? extends IUnresolvedTypeResolver> bindIUnresolvedTypeResolver() {
-		return InteractiveUnresolvedTypeResolver.class;
-	}
-	
-	// contributed by org.eclipse.xtext.xtext.generator.xbase.XbaseGeneratorFragment2
-	public Class<? extends ITypesProposalProvider> bindITypesProposalProvider() {
-		return ImportingTypesProposalProvider.class;
-	}
-	
-	// contributed by org.eclipse.xtext.xtext.generator.xbase.XbaseGeneratorFragment2
-	public Class<? extends XtextTemplateContextType> bindXtextTemplateContextType() {
-		return XbaseTemplateContextType.class;
+	public Class<? extends JavaTypeQuickfixes> bindJavaTypeQuickfixes() {
+		return JavaTypeQuickfixesNoImportSection.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.ui.templates.CodetemplatesGeneratorFragment2

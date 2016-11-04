@@ -69,13 +69,22 @@ public interface ModelXFactory extends EFactory
   DataType createDataType();
 
   /**
-   * Returns a new object of class '<em>Package Declaration</em>'.
+   * Returns a new object of class '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Package Declaration</em>'.
+   * @return a new object of class '<em>Import</em>'.
    * @generated
    */
-  PackageDeclaration createPackageDeclaration();
+  Import createImport();
+
+  /**
+   * Returns a new object of class '<em>Package</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package</em>'.
+   * @generated
+   */
+  Package createPackage();
 
   /**
    * Returns a new object of class '<em>Entity</em>'.
@@ -94,15 +103,6 @@ public interface ModelXFactory extends EFactory
    * @generated
    */
   Feature createFeature();
-
-  /**
-   * Returns a new object of class '<em>Feature Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Feature Type</em>'.
-   * @generated
-   */
-  FeatureType createFeatureType();
 
   /**
    * Returns the package supported by this factory.

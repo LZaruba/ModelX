@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link cz.lzaruba.modelx.modelX.impl.EntityImpl#getName <em>Name</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.EntityImpl#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.EntityImpl#getInterfaces <em>Interfaces</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.EntityImpl#getFeatures <em>Features</em>}</li>
@@ -42,26 +41,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class EntityImpl extends AbstractElementImpl implements Entity
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getSuperType() <em>Super Type</em>}' reference.
    * <!-- begin-user-doc -->
@@ -111,29 +90,6 @@ public class EntityImpl extends AbstractElementImpl implements Entity
   protected EClass eStaticClass()
   {
     return ModelXPackage.Literals.ENTITY;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelXPackage.ENTITY__NAME, oldName, name));
   }
 
   /**
@@ -233,8 +189,6 @@ public class EntityImpl extends AbstractElementImpl implements Entity
   {
     switch (featureID)
     {
-      case ModelXPackage.ENTITY__NAME:
-        return getName();
       case ModelXPackage.ENTITY__SUPER_TYPE:
         if (resolve) return getSuperType();
         return basicGetSuperType();
@@ -257,9 +211,6 @@ public class EntityImpl extends AbstractElementImpl implements Entity
   {
     switch (featureID)
     {
-      case ModelXPackage.ENTITY__NAME:
-        setName((String)newValue);
-        return;
       case ModelXPackage.ENTITY__SUPER_TYPE:
         setSuperType((Entity)newValue);
         return;
@@ -285,9 +236,6 @@ public class EntityImpl extends AbstractElementImpl implements Entity
   {
     switch (featureID)
     {
-      case ModelXPackage.ENTITY__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case ModelXPackage.ENTITY__SUPER_TYPE:
         setSuperType((Entity)null);
         return;
@@ -311,8 +259,6 @@ public class EntityImpl extends AbstractElementImpl implements Entity
   {
     switch (featureID)
     {
-      case ModelXPackage.ENTITY__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case ModelXPackage.ENTITY__SUPER_TYPE:
         return superType != null;
       case ModelXPackage.ENTITY__INTERFACES:
@@ -321,23 +267,6 @@ public class EntityImpl extends AbstractElementImpl implements Entity
         return features != null && !features.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //EntityImpl

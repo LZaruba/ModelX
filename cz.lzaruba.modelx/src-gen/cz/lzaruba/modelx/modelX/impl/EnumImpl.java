@@ -7,13 +7,9 @@ import cz.lzaruba.modelx.modelX.ModelXPackage;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 
@@ -25,7 +21,6 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link cz.lzaruba.modelx.modelX.impl.EnumImpl#getName <em>Name</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.EnumImpl#getLiterals <em>Literals</em>}</li>
  * </ul>
  *
@@ -33,26 +28,6 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  */
 public class EnumImpl extends AbstractElementImpl implements cz.lzaruba.modelx.modelX.Enum
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getLiterals() <em>Literals</em>}' attribute list.
    * <!-- begin-user-doc -->
@@ -89,29 +64,6 @@ public class EnumImpl extends AbstractElementImpl implements cz.lzaruba.modelx.m
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ModelXPackage.ENUM__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<String> getLiterals()
   {
     if (literals == null)
@@ -131,8 +83,6 @@ public class EnumImpl extends AbstractElementImpl implements cz.lzaruba.modelx.m
   {
     switch (featureID)
     {
-      case ModelXPackage.ENUM__NAME:
-        return getName();
       case ModelXPackage.ENUM__LITERALS:
         return getLiterals();
     }
@@ -150,9 +100,6 @@ public class EnumImpl extends AbstractElementImpl implements cz.lzaruba.modelx.m
   {
     switch (featureID)
     {
-      case ModelXPackage.ENUM__NAME:
-        setName((String)newValue);
-        return;
       case ModelXPackage.ENUM__LITERALS:
         getLiterals().clear();
         getLiterals().addAll((Collection<? extends String>)newValue);
@@ -171,9 +118,6 @@ public class EnumImpl extends AbstractElementImpl implements cz.lzaruba.modelx.m
   {
     switch (featureID)
     {
-      case ModelXPackage.ENUM__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case ModelXPackage.ENUM__LITERALS:
         getLiterals().clear();
         return;
@@ -191,8 +135,6 @@ public class EnumImpl extends AbstractElementImpl implements cz.lzaruba.modelx.m
   {
     switch (featureID)
     {
-      case ModelXPackage.ENUM__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case ModelXPackage.ENUM__LITERALS:
         return literals != null && !literals.isEmpty();
     }
@@ -210,9 +152,7 @@ public class EnumImpl extends AbstractElementImpl implements cz.lzaruba.modelx.m
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", literals: ");
+    result.append(" (literals: ");
     result.append(literals);
     result.append(')');
     return result.toString();

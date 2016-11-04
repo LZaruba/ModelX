@@ -7,11 +7,10 @@ import cz.lzaruba.modelx.modelX.AbstractElement;
 import cz.lzaruba.modelx.modelX.DataType;
 import cz.lzaruba.modelx.modelX.Entity;
 import cz.lzaruba.modelx.modelX.Feature;
-import cz.lzaruba.modelx.modelX.FeatureType;
+import cz.lzaruba.modelx.modelX.Import;
 import cz.lzaruba.modelx.modelX.Interface;
 import cz.lzaruba.modelx.modelX.Model;
 import cz.lzaruba.modelx.modelX.ModelXPackage;
-import cz.lzaruba.modelx.modelX.PackageDeclaration;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -109,9 +108,14 @@ public class ModelXAdapterFactory extends AdapterFactoryImpl
         return createDataTypeAdapter();
       }
       @Override
-      public Adapter casePackageDeclaration(PackageDeclaration object)
+      public Adapter caseImport(Import object)
       {
-        return createPackageDeclarationAdapter();
+        return createImportAdapter();
+      }
+      @Override
+      public Adapter casePackage(cz.lzaruba.modelx.modelX.Package object)
+      {
+        return createPackageAdapter();
       }
       @Override
       public Adapter caseEntity(Entity object)
@@ -122,11 +126,6 @@ public class ModelXAdapterFactory extends AdapterFactoryImpl
       public Adapter caseFeature(Feature object)
       {
         return createFeatureAdapter();
-      }
-      @Override
-      public Adapter caseFeatureType(FeatureType object)
-      {
-        return createFeatureTypeAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -226,16 +225,31 @@ public class ModelXAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link cz.lzaruba.modelx.modelX.PackageDeclaration <em>Package Declaration</em>}'.
+   * Creates a new adapter for an object of class '{@link cz.lzaruba.modelx.modelX.Import <em>Import</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see cz.lzaruba.modelx.modelX.PackageDeclaration
+   * @see cz.lzaruba.modelx.modelX.Import
    * @generated
    */
-  public Adapter createPackageDeclarationAdapter()
+  public Adapter createImportAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link cz.lzaruba.modelx.modelX.Package <em>Package</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see cz.lzaruba.modelx.modelX.Package
+   * @generated
+   */
+  public Adapter createPackageAdapter()
   {
     return null;
   }
@@ -266,21 +280,6 @@ public class ModelXAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFeatureAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link cz.lzaruba.modelx.modelX.FeatureType <em>Feature Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see cz.lzaruba.modelx.modelX.FeatureType
-   * @generated
-   */
-  public Adapter createFeatureTypeAdapter()
   {
     return null;
   }

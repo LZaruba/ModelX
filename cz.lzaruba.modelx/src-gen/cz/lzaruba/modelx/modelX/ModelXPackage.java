@@ -68,22 +68,13 @@ public interface ModelXPackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Import Section</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__IMPORT_SECTION = 0;
-
-  /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__ELEMENTS = 1;
+  int MODEL__ELEMENTS = 0;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -92,7 +83,7 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 2;
+  int MODEL_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link cz.lzaruba.modelx.modelX.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
@@ -105,13 +96,31 @@ public interface ModelXPackage extends EPackage
   int ABSTRACT_ELEMENT = 1;
 
   /**
+   * The feature id for the '<em><b>Comment</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_ELEMENT__COMMENT = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_ELEMENT__NAME = 1;
+
+  /**
    * The number of structural features of the '<em>Abstract Element</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ABSTRACT_ELEMENT_FEATURE_COUNT = 0;
+  int ABSTRACT_ELEMENT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link cz.lzaruba.modelx.modelX.impl.InterfaceImpl <em>Interface</em>}' class.
@@ -124,13 +133,31 @@ public interface ModelXPackage extends EPackage
   int INTERFACE = 2;
 
   /**
+   * The feature id for the '<em><b>Comment</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE__COMMENT = ABSTRACT_ELEMENT__COMMENT;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERFACE__NAME = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+  int INTERFACE__NAME = ABSTRACT_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERFACE__ANNOTATIONS = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Supertypes</b></em>' reference list.
@@ -170,13 +197,22 @@ public interface ModelXPackage extends EPackage
   int ENUM = 3;
 
   /**
+   * The feature id for the '<em><b>Comment</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUM__COMMENT = ABSTRACT_ELEMENT__COMMENT;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUM__NAME = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+  int ENUM__NAME = ABSTRACT_ELEMENT__NAME;
 
   /**
    * The feature id for the '<em><b>Literals</b></em>' attribute list.
@@ -185,7 +221,7 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM__LITERALS = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+  int ENUM__LITERALS = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Enum</em>' class.
@@ -194,26 +230,7 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUM_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link cz.lzaruba.modelx.modelX.impl.FeatureTypeImpl <em>Feature Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see cz.lzaruba.modelx.modelX.impl.FeatureTypeImpl
-   * @see cz.lzaruba.modelx.modelX.impl.ModelXPackageImpl#getFeatureType()
-   * @generated
-   */
-  int FEATURE_TYPE = 8;
-
-  /**
-   * The number of structural features of the '<em>Feature Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FEATURE_TYPE_FEATURE_COUNT = 0;
+  int ENUM_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link cz.lzaruba.modelx.modelX.impl.DataTypeImpl <em>Data Type</em>}' class.
@@ -226,13 +243,22 @@ public interface ModelXPackage extends EPackage
   int DATA_TYPE = 4;
 
   /**
+   * The feature id for the '<em><b>Comment</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_TYPE__COMMENT = ABSTRACT_ELEMENT__COMMENT;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATA_TYPE__NAME = FEATURE_TYPE_FEATURE_COUNT + 0;
+  int DATA_TYPE__NAME = ABSTRACT_ELEMENT__NAME;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -241,7 +267,7 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_TYPE__TYPE = FEATURE_TYPE_FEATURE_COUNT + 1;
+  int DATA_TYPE__TYPE = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Data Type</em>' class.
@@ -250,17 +276,54 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_TYPE_FEATURE_COUNT = FEATURE_TYPE_FEATURE_COUNT + 2;
+  int DATA_TYPE_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link cz.lzaruba.modelx.modelX.impl.PackageDeclarationImpl <em>Package Declaration</em>}' class.
+   * The meta object id for the '{@link cz.lzaruba.modelx.modelX.impl.ImportImpl <em>Import</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see cz.lzaruba.modelx.modelX.impl.PackageDeclarationImpl
-   * @see cz.lzaruba.modelx.modelX.impl.ModelXPackageImpl#getPackageDeclaration()
+   * @see cz.lzaruba.modelx.modelX.impl.ImportImpl
+   * @see cz.lzaruba.modelx.modelX.impl.ModelXPackageImpl#getImport()
    * @generated
    */
-  int PACKAGE_DECLARATION = 5;
+  int IMPORT = 5;
+
+  /**
+   * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT__IMPORTED_NAMESPACE = 0;
+
+  /**
+   * The number of structural features of the '<em>Import</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link cz.lzaruba.modelx.modelX.impl.PackageImpl <em>Package</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see cz.lzaruba.modelx.modelX.impl.PackageImpl
+   * @see cz.lzaruba.modelx.modelX.impl.ModelXPackageImpl#getPackage()
+   * @generated
+   */
+  int PACKAGE = 6;
+
+  /**
+   * The feature id for the '<em><b>Comment</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE__COMMENT = 0;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -269,7 +332,16 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE_DECLARATION__NAME = 0;
+  int PACKAGE__NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE__IMPORTS = 2;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -278,16 +350,16 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE_DECLARATION__ELEMENTS = 1;
+  int PACKAGE__ELEMENTS = 3;
 
   /**
-   * The number of structural features of the '<em>Package Declaration</em>' class.
+   * The number of structural features of the '<em>Package</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE_DECLARATION_FEATURE_COUNT = 2;
+  int PACKAGE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link cz.lzaruba.modelx.modelX.impl.EntityImpl <em>Entity</em>}' class.
@@ -297,7 +369,16 @@ public interface ModelXPackage extends EPackage
    * @see cz.lzaruba.modelx.modelX.impl.ModelXPackageImpl#getEntity()
    * @generated
    */
-  int ENTITY = 6;
+  int ENTITY = 7;
+
+  /**
+   * The feature id for the '<em><b>Comment</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY__COMMENT = ABSTRACT_ELEMENT__COMMENT;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -306,7 +387,7 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY__NAME = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+  int ENTITY__NAME = ABSTRACT_ELEMENT__NAME;
 
   /**
    * The feature id for the '<em><b>Super Type</b></em>' reference.
@@ -315,7 +396,7 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY__SUPER_TYPE = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+  int ENTITY__SUPER_TYPE = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Interfaces</b></em>' reference list.
@@ -324,7 +405,7 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY__INTERFACES = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
+  int ENTITY__INTERFACES = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -333,7 +414,7 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY__FEATURES = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
+  int ENTITY__FEATURES = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Entity</em>' class.
@@ -342,7 +423,7 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENTITY_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 4;
+  int ENTITY_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link cz.lzaruba.modelx.modelX.impl.FeatureImpl <em>Feature</em>}' class.
@@ -352,7 +433,16 @@ public interface ModelXPackage extends EPackage
    * @see cz.lzaruba.modelx.modelX.impl.ModelXPackageImpl#getFeature()
    * @generated
    */
-  int FEATURE = 7;
+  int FEATURE = 8;
+
+  /**
+   * The feature id for the '<em><b>Comment</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FEATURE__COMMENT = 0;
 
   /**
    * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -361,7 +451,7 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE__MANY = 0;
+  int FEATURE__MANY = 1;
 
   /**
    * The feature id for the '<em><b>Required</b></em>' attribute.
@@ -370,7 +460,7 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE__REQUIRED = 1;
+  int FEATURE__REQUIRED = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -379,7 +469,7 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE__NAME = 2;
+  int FEATURE__NAME = 3;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -388,7 +478,7 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE__TYPE = 3;
+  int FEATURE__TYPE = 4;
 
   /**
    * The number of structural features of the '<em>Feature</em>' class.
@@ -397,7 +487,7 @@ public interface ModelXPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_FEATURE_COUNT = 4;
+  int FEATURE_FEATURE_COUNT = 5;
 
 
   /**
@@ -409,17 +499,6 @@ public interface ModelXPackage extends EPackage
    * @generated
    */
   EClass getModel();
-
-  /**
-   * Returns the meta object for the containment reference '{@link cz.lzaruba.modelx.modelX.Model#getImportSection <em>Import Section</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Import Section</em>'.
-   * @see cz.lzaruba.modelx.modelX.Model#getImportSection()
-   * @see #getModel()
-   * @generated
-   */
-  EReference getModel_ImportSection();
 
   /**
    * Returns the meta object for the containment reference list '{@link cz.lzaruba.modelx.modelX.Model#getElements <em>Elements</em>}'.
@@ -443,6 +522,28 @@ public interface ModelXPackage extends EPackage
   EClass getAbstractElement();
 
   /**
+   * Returns the meta object for the attribute list '{@link cz.lzaruba.modelx.modelX.AbstractElement#getComment <em>Comment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Comment</em>'.
+   * @see cz.lzaruba.modelx.modelX.AbstractElement#getComment()
+   * @see #getAbstractElement()
+   * @generated
+   */
+  EAttribute getAbstractElement_Comment();
+
+  /**
+   * Returns the meta object for the attribute '{@link cz.lzaruba.modelx.modelX.AbstractElement#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see cz.lzaruba.modelx.modelX.AbstractElement#getName()
+   * @see #getAbstractElement()
+   * @generated
+   */
+  EAttribute getAbstractElement_Name();
+
+  /**
    * Returns the meta object for class '{@link cz.lzaruba.modelx.modelX.Interface <em>Interface</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -453,15 +554,15 @@ public interface ModelXPackage extends EPackage
   EClass getInterface();
 
   /**
-   * Returns the meta object for the attribute '{@link cz.lzaruba.modelx.modelX.Interface#getName <em>Name</em>}'.
+   * Returns the meta object for the containment reference list '{@link cz.lzaruba.modelx.modelX.Interface#getAnnotations <em>Annotations</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see cz.lzaruba.modelx.modelX.Interface#getName()
+   * @return the meta object for the containment reference list '<em>Annotations</em>'.
+   * @see cz.lzaruba.modelx.modelX.Interface#getAnnotations()
    * @see #getInterface()
    * @generated
    */
-  EAttribute getInterface_Name();
+  EReference getInterface_Annotations();
 
   /**
    * Returns the meta object for the reference list '{@link cz.lzaruba.modelx.modelX.Interface#getSupertypes <em>Supertypes</em>}'.
@@ -496,17 +597,6 @@ public interface ModelXPackage extends EPackage
   EClass getEnum();
 
   /**
-   * Returns the meta object for the attribute '{@link cz.lzaruba.modelx.modelX.Enum#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see cz.lzaruba.modelx.modelX.Enum#getName()
-   * @see #getEnum()
-   * @generated
-   */
-  EAttribute getEnum_Name();
-
-  /**
    * Returns the meta object for the attribute list '{@link cz.lzaruba.modelx.modelX.Enum#getLiterals <em>Literals</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -528,17 +618,6 @@ public interface ModelXPackage extends EPackage
   EClass getDataType();
 
   /**
-   * Returns the meta object for the attribute '{@link cz.lzaruba.modelx.modelX.DataType#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see cz.lzaruba.modelx.modelX.DataType#getName()
-   * @see #getDataType()
-   * @generated
-   */
-  EAttribute getDataType_Name();
-
-  /**
    * Returns the meta object for the containment reference '{@link cz.lzaruba.modelx.modelX.DataType#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -550,36 +629,79 @@ public interface ModelXPackage extends EPackage
   EReference getDataType_Type();
 
   /**
-   * Returns the meta object for class '{@link cz.lzaruba.modelx.modelX.PackageDeclaration <em>Package Declaration</em>}'.
+   * Returns the meta object for class '{@link cz.lzaruba.modelx.modelX.Import <em>Import</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Package Declaration</em>'.
-   * @see cz.lzaruba.modelx.modelX.PackageDeclaration
+   * @return the meta object for class '<em>Import</em>'.
+   * @see cz.lzaruba.modelx.modelX.Import
    * @generated
    */
-  EClass getPackageDeclaration();
+  EClass getImport();
 
   /**
-   * Returns the meta object for the attribute '{@link cz.lzaruba.modelx.modelX.PackageDeclaration#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link cz.lzaruba.modelx.modelX.Import#getImportedNamespace <em>Imported Namespace</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Imported Namespace</em>'.
+   * @see cz.lzaruba.modelx.modelX.Import#getImportedNamespace()
+   * @see #getImport()
+   * @generated
+   */
+  EAttribute getImport_ImportedNamespace();
+
+  /**
+   * Returns the meta object for class '{@link cz.lzaruba.modelx.modelX.Package <em>Package</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Package</em>'.
+   * @see cz.lzaruba.modelx.modelX.Package
+   * @generated
+   */
+  EClass getPackage();
+
+  /**
+   * Returns the meta object for the attribute list '{@link cz.lzaruba.modelx.modelX.Package#getComment <em>Comment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Comment</em>'.
+   * @see cz.lzaruba.modelx.modelX.Package#getComment()
+   * @see #getPackage()
+   * @generated
+   */
+  EAttribute getPackage_Comment();
+
+  /**
+   * Returns the meta object for the attribute '{@link cz.lzaruba.modelx.modelX.Package#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see cz.lzaruba.modelx.modelX.PackageDeclaration#getName()
-   * @see #getPackageDeclaration()
+   * @see cz.lzaruba.modelx.modelX.Package#getName()
+   * @see #getPackage()
    * @generated
    */
-  EAttribute getPackageDeclaration_Name();
+  EAttribute getPackage_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link cz.lzaruba.modelx.modelX.PackageDeclaration#getElements <em>Elements</em>}'.
+   * Returns the meta object for the containment reference list '{@link cz.lzaruba.modelx.modelX.Package#getImports <em>Imports</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Imports</em>'.
+   * @see cz.lzaruba.modelx.modelX.Package#getImports()
+   * @see #getPackage()
+   * @generated
+   */
+  EReference getPackage_Imports();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link cz.lzaruba.modelx.modelX.Package#getElements <em>Elements</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see cz.lzaruba.modelx.modelX.PackageDeclaration#getElements()
-   * @see #getPackageDeclaration()
+   * @see cz.lzaruba.modelx.modelX.Package#getElements()
+   * @see #getPackage()
    * @generated
    */
-  EReference getPackageDeclaration_Elements();
+  EReference getPackage_Elements();
 
   /**
    * Returns the meta object for class '{@link cz.lzaruba.modelx.modelX.Entity <em>Entity</em>}'.
@@ -590,17 +712,6 @@ public interface ModelXPackage extends EPackage
    * @generated
    */
   EClass getEntity();
-
-  /**
-   * Returns the meta object for the attribute '{@link cz.lzaruba.modelx.modelX.Entity#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see cz.lzaruba.modelx.modelX.Entity#getName()
-   * @see #getEntity()
-   * @generated
-   */
-  EAttribute getEntity_Name();
 
   /**
    * Returns the meta object for the reference '{@link cz.lzaruba.modelx.modelX.Entity#getSuperType <em>Super Type</em>}'.
@@ -644,6 +755,17 @@ public interface ModelXPackage extends EPackage
    * @generated
    */
   EClass getFeature();
+
+  /**
+   * Returns the meta object for the attribute list '{@link cz.lzaruba.modelx.modelX.Feature#getComment <em>Comment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Comment</em>'.
+   * @see cz.lzaruba.modelx.modelX.Feature#getComment()
+   * @see #getFeature()
+   * @generated
+   */
+  EAttribute getFeature_Comment();
 
   /**
    * Returns the meta object for the attribute '{@link cz.lzaruba.modelx.modelX.Feature#isMany <em>Many</em>}'.
@@ -690,16 +812,6 @@ public interface ModelXPackage extends EPackage
   EReference getFeature_Type();
 
   /**
-   * Returns the meta object for class '{@link cz.lzaruba.modelx.modelX.FeatureType <em>Feature Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Feature Type</em>'.
-   * @see cz.lzaruba.modelx.modelX.FeatureType
-   * @generated
-   */
-  EClass getFeatureType();
-
-  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -733,14 +845,6 @@ public interface ModelXPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Import Section</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference MODEL__IMPORT_SECTION = eINSTANCE.getModel_ImportSection();
-
-    /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -759,6 +863,22 @@ public interface ModelXPackage extends EPackage
     EClass ABSTRACT_ELEMENT = eINSTANCE.getAbstractElement();
 
     /**
+     * The meta object literal for the '<em><b>Comment</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ABSTRACT_ELEMENT__COMMENT = eINSTANCE.getAbstractElement_Comment();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ABSTRACT_ELEMENT__NAME = eINSTANCE.getAbstractElement_Name();
+
+    /**
      * The meta object literal for the '{@link cz.lzaruba.modelx.modelX.impl.InterfaceImpl <em>Interface</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -769,12 +889,12 @@ public interface ModelXPackage extends EPackage
     EClass INTERFACE = eINSTANCE.getInterface();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Annotations</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute INTERFACE__NAME = eINSTANCE.getInterface_Name();
+    EReference INTERFACE__ANNOTATIONS = eINSTANCE.getInterface_Annotations();
 
     /**
      * The meta object literal for the '<em><b>Supertypes</b></em>' reference list feature.
@@ -803,14 +923,6 @@ public interface ModelXPackage extends EPackage
     EClass ENUM = eINSTANCE.getEnum();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENUM__NAME = eINSTANCE.getEnum_Name();
-
-    /**
      * The meta object literal for the '<em><b>Literals</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -829,14 +941,6 @@ public interface ModelXPackage extends EPackage
     EClass DATA_TYPE = eINSTANCE.getDataType();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DATA_TYPE__NAME = eINSTANCE.getDataType_Name();
-
-    /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -845,14 +949,40 @@ public interface ModelXPackage extends EPackage
     EReference DATA_TYPE__TYPE = eINSTANCE.getDataType_Type();
 
     /**
-     * The meta object literal for the '{@link cz.lzaruba.modelx.modelX.impl.PackageDeclarationImpl <em>Package Declaration</em>}' class.
+     * The meta object literal for the '{@link cz.lzaruba.modelx.modelX.impl.ImportImpl <em>Import</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see cz.lzaruba.modelx.modelX.impl.PackageDeclarationImpl
-     * @see cz.lzaruba.modelx.modelX.impl.ModelXPackageImpl#getPackageDeclaration()
+     * @see cz.lzaruba.modelx.modelX.impl.ImportImpl
+     * @see cz.lzaruba.modelx.modelX.impl.ModelXPackageImpl#getImport()
      * @generated
      */
-    EClass PACKAGE_DECLARATION = eINSTANCE.getPackageDeclaration();
+    EClass IMPORT = eINSTANCE.getImport();
+
+    /**
+     * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IMPORT__IMPORTED_NAMESPACE = eINSTANCE.getImport_ImportedNamespace();
+
+    /**
+     * The meta object literal for the '{@link cz.lzaruba.modelx.modelX.impl.PackageImpl <em>Package</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see cz.lzaruba.modelx.modelX.impl.PackageImpl
+     * @see cz.lzaruba.modelx.modelX.impl.ModelXPackageImpl#getPackage()
+     * @generated
+     */
+    EClass PACKAGE = eINSTANCE.getPackage();
+
+    /**
+     * The meta object literal for the '<em><b>Comment</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PACKAGE__COMMENT = eINSTANCE.getPackage_Comment();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -860,7 +990,15 @@ public interface ModelXPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute PACKAGE_DECLARATION__NAME = eINSTANCE.getPackageDeclaration_Name();
+    EAttribute PACKAGE__NAME = eINSTANCE.getPackage_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PACKAGE__IMPORTS = eINSTANCE.getPackage_Imports();
 
     /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
@@ -868,7 +1006,7 @@ public interface ModelXPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PACKAGE_DECLARATION__ELEMENTS = eINSTANCE.getPackageDeclaration_Elements();
+    EReference PACKAGE__ELEMENTS = eINSTANCE.getPackage_Elements();
 
     /**
      * The meta object literal for the '{@link cz.lzaruba.modelx.modelX.impl.EntityImpl <em>Entity</em>}' class.
@@ -879,14 +1017,6 @@ public interface ModelXPackage extends EPackage
      * @generated
      */
     EClass ENTITY = eINSTANCE.getEntity();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENTITY__NAME = eINSTANCE.getEntity_Name();
 
     /**
      * The meta object literal for the '<em><b>Super Type</b></em>' reference feature.
@@ -923,6 +1053,14 @@ public interface ModelXPackage extends EPackage
     EClass FEATURE = eINSTANCE.getFeature();
 
     /**
+     * The meta object literal for the '<em><b>Comment</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FEATURE__COMMENT = eINSTANCE.getFeature_Comment();
+
+    /**
      * The meta object literal for the '<em><b>Many</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -953,16 +1091,6 @@ public interface ModelXPackage extends EPackage
      * @generated
      */
     EReference FEATURE__TYPE = eINSTANCE.getFeature_Type();
-
-    /**
-     * The meta object literal for the '{@link cz.lzaruba.modelx.modelX.impl.FeatureTypeImpl <em>Feature Type</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see cz.lzaruba.modelx.modelX.impl.FeatureTypeImpl
-     * @see cz.lzaruba.modelx.modelX.impl.ModelXPackageImpl#getFeatureType()
-     * @generated
-     */
-    EClass FEATURE_TYPE = eINSTANCE.getFeatureType();
 
   }
 
