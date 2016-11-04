@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="cz.lzaruba.modelx.feature"
+	label="ModelX Feature "
+	version="1.0.0.qualifier">
+	<plugin
+			id="cz.lzaruba.modelx"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="cz.lzaruba.modelx.ide"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="cz.lzaruba.modelx.ui"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+</feature>

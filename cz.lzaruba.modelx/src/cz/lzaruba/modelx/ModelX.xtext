@@ -1,0 +1,44 @@
+grammar cz.lzaruba.modelx.ModelX with org.eclipse.xtext.xbase.annotations.XbaseWithAnnotations
+
+generate modelX "http://www.lzaruba.cz/modelx/ModelX"
+
+Model:
+	importSection=XImportSection?
+	elements+=AbstractElement*;
+	
+AbstractElement:
+	Entity | Enum | Interface;
+
+// TODO separate interface super types by comma
+Interface:
+	'interface' name=ValidID ('extends' supertypes+=[Interface]*)? '{'
+		features+=Feature*
+	'}'
+;
+
+Enum:
+	name=ValidID '{'
+		literals+=ID*
+	'}'
+;
+
+DataType:
+	'dataType' name=ValidID ':' type=JvmParameterizedTypeReference
+;
+
+PackageDeclaration:
+	'package' name=QualifiedName '{'
+		elements+=AbstractElement*
+	'}';
+
+Entity:
+	'entity' name=ValidID ('extends' superType=[Entity])? ('implements' interfaces+=[Interface]+)? '{'
+		features+=Feature*
+	'}';
+
+Feature:
+	(many?='many')? (required?='required') name=ValidID ':' type=[FeatureType];
+	
+FeatureType:
+	Entity | Interface | DataType | Enum
+;

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: cz.lzaruba.modelx.ide
+Bundle-SymbolicName: cz.lzaruba.modelx.ide;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: cz.lzaruba.modelx.ide.contentassist.antlr,
+ cz.lzaruba.modelx.ide.contentassist.antlr.internal
+Require-Bundle: org.eclipse.xtext.ide
+
