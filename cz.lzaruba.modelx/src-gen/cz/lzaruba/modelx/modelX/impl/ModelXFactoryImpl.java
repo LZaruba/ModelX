@@ -5,6 +5,7 @@ package cz.lzaruba.modelx.modelX.impl;
 
 import cz.lzaruba.modelx.modelX.AbstractElement;
 import cz.lzaruba.modelx.modelX.DataType;
+import cz.lzaruba.modelx.modelX.ElementWithFeatures;
 import cz.lzaruba.modelx.modelX.Entity;
 import cz.lzaruba.modelx.modelX.Feature;
 import cz.lzaruba.modelx.modelX.Import;
@@ -74,6 +75,7 @@ public class ModelXFactoryImpl extends EFactoryImpl implements ModelXFactory
     switch (eClass.getClassifierID())
     {
       case ModelXPackage.MODEL: return createModel();
+      case ModelXPackage.ELEMENT_WITH_FEATURES: return createElementWithFeatures();
       case ModelXPackage.ABSTRACT_ELEMENT: return createAbstractElement();
       case ModelXPackage.INTERFACE: return createInterface();
       case ModelXPackage.ENUM: return createEnum();
@@ -96,6 +98,17 @@ public class ModelXFactoryImpl extends EFactoryImpl implements ModelXFactory
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ElementWithFeatures createElementWithFeatures()
+  {
+    ElementWithFeaturesImpl elementWithFeatures = new ElementWithFeaturesImpl();
+    return elementWithFeatures;
   }
 
   /**

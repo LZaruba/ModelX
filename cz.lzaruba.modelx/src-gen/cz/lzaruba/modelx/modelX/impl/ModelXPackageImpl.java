@@ -5,6 +5,7 @@ package cz.lzaruba.modelx.modelX.impl;
 
 import cz.lzaruba.modelx.modelX.AbstractElement;
 import cz.lzaruba.modelx.modelX.DataType;
+import cz.lzaruba.modelx.modelX.ElementWithFeatures;
 import cz.lzaruba.modelx.modelX.Entity;
 import cz.lzaruba.modelx.modelX.Feature;
 import cz.lzaruba.modelx.modelX.Import;
@@ -40,6 +41,13 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * @generated
    */
   private EClass modelEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass elementWithFeaturesEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -189,6 +197,26 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getElementWithFeatures()
+  {
+    return elementWithFeaturesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getElementWithFeatures_Features()
+  {
+    return (EReference)elementWithFeaturesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getAbstractElement()
   {
     return abstractElementEClass;
@@ -242,16 +270,6 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
   public EReference getInterface_Supertypes()
   {
     return (EReference)interfaceEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getInterface_Features()
-  {
-    return (EReference)interfaceEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -399,16 +417,6 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEntity_Features()
-  {
-    return (EReference)entityEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getFeature()
   {
     return featureEClass;
@@ -497,6 +505,9 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
     modelEClass = createEClass(MODEL);
     createEReference(modelEClass, MODEL__ELEMENTS);
 
+    elementWithFeaturesEClass = createEClass(ELEMENT_WITH_FEATURES);
+    createEReference(elementWithFeaturesEClass, ELEMENT_WITH_FEATURES__FEATURES);
+
     abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
     createEAttribute(abstractElementEClass, ABSTRACT_ELEMENT__COMMENT);
     createEAttribute(abstractElementEClass, ABSTRACT_ELEMENT__NAME);
@@ -504,7 +515,6 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
     interfaceEClass = createEClass(INTERFACE);
     createEReference(interfaceEClass, INTERFACE__ANNOTATIONS);
     createEReference(interfaceEClass, INTERFACE__SUPERTYPES);
-    createEReference(interfaceEClass, INTERFACE__FEATURES);
 
     enumEClass = createEClass(ENUM);
     createEAttribute(enumEClass, ENUM__LITERALS);
@@ -524,7 +534,6 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
     entityEClass = createEClass(ENTITY);
     createEReference(entityEClass, ENTITY__SUPER_TYPE);
     createEReference(entityEClass, ENTITY__INTERFACES);
-    createEReference(entityEClass, ENTITY__FEATURES);
 
     featureEClass = createEClass(FEATURE);
     createEAttribute(featureEClass, FEATURE__COMMENT);
@@ -567,14 +576,18 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    interfaceEClass.getESuperTypes().add(this.getAbstractElement());
+    elementWithFeaturesEClass.getESuperTypes().add(this.getAbstractElement());
+    interfaceEClass.getESuperTypes().add(this.getElementWithFeatures());
     enumEClass.getESuperTypes().add(this.getAbstractElement());
     dataTypeEClass.getESuperTypes().add(this.getAbstractElement());
-    entityEClass.getESuperTypes().add(this.getAbstractElement());
+    entityEClass.getESuperTypes().add(this.getElementWithFeatures());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModel_Elements(), this.getPackage(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(elementWithFeaturesEClass, ElementWithFeatures.class, "ElementWithFeatures", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getElementWithFeatures_Features(), this.getFeature(), null, "features", null, 0, -1, ElementWithFeatures.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAbstractElement_Comment(), ecorePackage.getEString(), "comment", null, 0, -1, AbstractElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -583,7 +596,6 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
     initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInterface_Annotations(), theXAnnotationsPackage.getXAnnotation(), null, "annotations", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInterface_Supertypes(), this.getInterface(), null, "supertypes", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getInterface_Features(), this.getFeature(), null, "features", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumEClass, cz.lzaruba.modelx.modelX.Enum.class, "Enum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnum_Literals(), ecorePackage.getEString(), "literals", null, 0, -1, cz.lzaruba.modelx.modelX.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -603,7 +615,6 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
     initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEntity_SuperType(), this.getEntity(), null, "superType", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_Interfaces(), this.getInterface(), null, "interfaces", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getEntity_Features(), this.getFeature(), null, "features", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFeature_Comment(), ecorePackage.getEString(), "comment", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

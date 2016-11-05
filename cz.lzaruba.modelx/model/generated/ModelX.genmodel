@@ -9,6 +9,9 @@
     <genClasses ecoreClass="ModelX.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ModelX.ecore#//Model/elements"/>
     </genClasses>
+    <genClasses ecoreClass="ModelX.ecore#//ElementWithFeatures">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ModelX.ecore#//ElementWithFeatures/features"/>
+    </genClasses>
     <genClasses ecoreClass="ModelX.ecore#//AbstractElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ModelX.ecore#//AbstractElement/comment"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ModelX.ecore#//AbstractElement/name"/>
@@ -16,7 +19,6 @@
     <genClasses ecoreClass="ModelX.ecore#//Interface">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ModelX.ecore#//Interface/annotations"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ModelX.ecore#//Interface/supertypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ModelX.ecore#//Interface/features"/>
     </genClasses>
     <genClasses ecoreClass="ModelX.ecore#//Enum">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ModelX.ecore#//Enum/literals"/>
@@ -36,7 +38,6 @@
     <genClasses ecoreClass="ModelX.ecore#//Entity">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ModelX.ecore#//Entity/superType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ModelX.ecore#//Entity/interfaces"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ModelX.ecore#//Entity/features"/>
     </genClasses>
     <genClasses ecoreClass="ModelX.ecore#//Feature">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ModelX.ecore#//Feature/comment"/>

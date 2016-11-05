@@ -5,6 +5,7 @@ package cz.lzaruba.modelx.modelX.util;
 
 import cz.lzaruba.modelx.modelX.AbstractElement;
 import cz.lzaruba.modelx.modelX.DataType;
+import cz.lzaruba.modelx.modelX.ElementWithFeatures;
 import cz.lzaruba.modelx.modelX.Entity;
 import cz.lzaruba.modelx.modelX.Feature;
 import cz.lzaruba.modelx.modelX.Import;
@@ -88,6 +89,11 @@ public class ModelXAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
+      public Adapter caseElementWithFeatures(ElementWithFeatures object)
+      {
+        return createElementWithFeaturesAdapter();
+      }
+      @Override
       public Adapter caseAbstractElement(AbstractElement object)
       {
         return createAbstractElementAdapter();
@@ -160,6 +166,21 @@ public class ModelXAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link cz.lzaruba.modelx.modelX.ElementWithFeatures <em>Element With Features</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see cz.lzaruba.modelx.modelX.ElementWithFeatures
+   * @generated
+   */
+  public Adapter createElementWithFeaturesAdapter()
   {
     return null;
   }

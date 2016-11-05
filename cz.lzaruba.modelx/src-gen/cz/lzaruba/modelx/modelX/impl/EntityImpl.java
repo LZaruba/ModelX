@@ -4,14 +4,12 @@
 package cz.lzaruba.modelx.modelX.impl;
 
 import cz.lzaruba.modelx.modelX.Entity;
-import cz.lzaruba.modelx.modelX.Feature;
 import cz.lzaruba.modelx.modelX.Interface;
 import cz.lzaruba.modelx.modelX.ModelXPackage;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -20,9 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,12 +30,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.EntityImpl#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.EntityImpl#getInterfaces <em>Interfaces</em>}</li>
- *   <li>{@link cz.lzaruba.modelx.modelX.impl.EntityImpl#getFeatures <em>Features</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class EntityImpl extends AbstractElementImpl implements Entity
+public class EntityImpl extends ElementWithFeaturesImpl implements Entity
 {
   /**
    * The cached value of the '{@link #getSuperType() <em>Super Type</em>}' reference.
@@ -60,16 +55,6 @@ public class EntityImpl extends AbstractElementImpl implements Entity
    * @ordered
    */
   protected EList<Interface> interfaces;
-
-  /**
-   * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFeatures()
-   * @generated
-   * @ordered
-   */
-  protected EList<Feature> features;
 
   /**
    * <!-- begin-user-doc -->
@@ -154,36 +139,6 @@ public class EntityImpl extends AbstractElementImpl implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Feature> getFeatures()
-  {
-    if (features == null)
-    {
-      features = new EObjectContainmentEList<Feature>(Feature.class, this, ModelXPackage.ENTITY__FEATURES);
-    }
-    return features;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case ModelXPackage.ENTITY__FEATURES:
-        return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -194,8 +149,6 @@ public class EntityImpl extends AbstractElementImpl implements Entity
         return basicGetSuperType();
       case ModelXPackage.ENTITY__INTERFACES:
         return getInterfaces();
-      case ModelXPackage.ENTITY__FEATURES:
-        return getFeatures();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -218,10 +171,6 @@ public class EntityImpl extends AbstractElementImpl implements Entity
         getInterfaces().clear();
         getInterfaces().addAll((Collection<? extends Interface>)newValue);
         return;
-      case ModelXPackage.ENTITY__FEATURES:
-        getFeatures().clear();
-        getFeatures().addAll((Collection<? extends Feature>)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -242,9 +191,6 @@ public class EntityImpl extends AbstractElementImpl implements Entity
       case ModelXPackage.ENTITY__INTERFACES:
         getInterfaces().clear();
         return;
-      case ModelXPackage.ENTITY__FEATURES:
-        getFeatures().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -263,8 +209,6 @@ public class EntityImpl extends AbstractElementImpl implements Entity
         return superType != null;
       case ModelXPackage.ENTITY__INTERFACES:
         return interfaces != null && !interfaces.isEmpty();
-      case ModelXPackage.ENTITY__FEATURES:
-        return features != null && !features.isEmpty();
     }
     return super.eIsSet(featureID);
   }

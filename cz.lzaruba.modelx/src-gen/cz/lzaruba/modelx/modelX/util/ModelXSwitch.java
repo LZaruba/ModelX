@@ -5,6 +5,7 @@ package cz.lzaruba.modelx.modelX.util;
 
 import cz.lzaruba.modelx.modelX.AbstractElement;
 import cz.lzaruba.modelx.modelX.DataType;
+import cz.lzaruba.modelx.modelX.ElementWithFeatures;
 import cz.lzaruba.modelx.modelX.Entity;
 import cz.lzaruba.modelx.modelX.Feature;
 import cz.lzaruba.modelx.modelX.Import;
@@ -87,6 +88,14 @@ public class ModelXSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ModelXPackage.ELEMENT_WITH_FEATURES:
+      {
+        ElementWithFeatures elementWithFeatures = (ElementWithFeatures)theEObject;
+        T result = caseElementWithFeatures(elementWithFeatures);
+        if (result == null) result = caseAbstractElement(elementWithFeatures);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ModelXPackage.ABSTRACT_ELEMENT:
       {
         AbstractElement abstractElement = (AbstractElement)theEObject;
@@ -98,6 +107,7 @@ public class ModelXSwitch<T> extends Switch<T>
       {
         Interface interface_ = (Interface)theEObject;
         T result = caseInterface(interface_);
+        if (result == null) result = caseElementWithFeatures(interface_);
         if (result == null) result = caseAbstractElement(interface_);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -136,6 +146,7 @@ public class ModelXSwitch<T> extends Switch<T>
       {
         Entity entity = (Entity)theEObject;
         T result = caseEntity(entity);
+        if (result == null) result = caseElementWithFeatures(entity);
         if (result == null) result = caseAbstractElement(entity);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -163,6 +174,22 @@ public class ModelXSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModel(Model object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Element With Features</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Element With Features</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseElementWithFeatures(ElementWithFeatures object)
   {
     return null;
   }

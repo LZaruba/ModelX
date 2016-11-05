@@ -429,6 +429,7 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     ElementWithFeatures returns Entity
 	 *     AbstractElement returns Entity
 	 *     Entity returns Entity
 	 *
@@ -485,6 +486,7 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     ElementWithFeatures returns Interface
 	 *     AbstractElement returns Interface
 	 *     Interface returns Interface
 	 *

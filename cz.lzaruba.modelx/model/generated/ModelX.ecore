@@ -5,19 +5,21 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//Package" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementWithFeatures" eSuperTypes="#//AbstractElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+        eType="#//Feature" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//AbstractElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//ElementWithFeatures">
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" upperBound="-1"
         eType="ecore:EClass platform:/resource/org.eclipse.xtext.xbase/model/XAnnotations.ecore#//XAnnotation"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="supertypes" unique="false"
         upperBound="-1" eType="#//Interface"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
-        eType="#//Feature" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Enum" eSuperTypes="#//AbstractElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="literals" unique="false"
@@ -39,12 +41,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
         eType="#//AbstractElement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//AbstractElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//ElementWithFeatures">
     <eStructuralFeatures xsi:type="ecore:EReference" name="superType" eType="#//Entity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" unique="false"
         upperBound="-1" eType="#//Interface"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
-        eType="#//Feature" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Feature">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" unique="false"

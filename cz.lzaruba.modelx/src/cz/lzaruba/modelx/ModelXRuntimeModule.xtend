@@ -5,6 +5,7 @@ package cz.lzaruba.modelx
 
 import com.google.inject.Binder
 import com.google.inject.name.Names
+import cz.lzaruba.modelx.generator.ModelXGenerator
 import org.eclipse.xtext.scoping.IScopeProvider
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import org.eclipse.xtext.scoping.impl.ImportedNamespaceAwareLocalScopeProvider
@@ -18,6 +19,10 @@ class ModelXRuntimeModule extends AbstractModelXRuntimeModule {
 		binder.bind(IScopeProvider).annotatedWith(
 			Names.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE)
 		).to(ImportedNamespaceAwareLocalScopeProvider);
+	}
+	
+	override bindIGenerator() {
+		ModelXGenerator
 	}
 
 }

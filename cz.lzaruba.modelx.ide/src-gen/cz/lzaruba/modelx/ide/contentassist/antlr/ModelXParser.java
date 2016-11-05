@@ -35,6 +35,7 @@ public class ModelXParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getElementWithFeaturesAccess().getAlternatives(), "rule__ElementWithFeatures__Alternatives");
 					put(grammarAccess.getAbstractElementAccess().getAlternatives(), "rule__AbstractElement__Alternatives");
 					put(grammarAccess.getXAnnotationAccess().getAlternatives_3_1(), "rule__XAnnotation__Alternatives_3_1");
 					put(grammarAccess.getXAnnotationElementValueOrCommaListAccess().getAlternatives(), "rule__XAnnotationElementValueOrCommaList__Alternatives");

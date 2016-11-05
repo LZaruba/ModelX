@@ -40,32 +40,47 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 		//Package
 		public RuleCall getElementsPackageParserRuleCall_0() { return cElementsPackageParserRuleCall_0; }
 	}
-	public class AbstractElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "cz.lzaruba.modelx.ModelX.AbstractElement");
+	public class ElementWithFeaturesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "cz.lzaruba.modelx.ModelX.ElementWithFeatures");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cEntityParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cEnumParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cInterfaceParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cDataTypeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cInterfaceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//AbstractElement:
-		//	Entity | Enum | Interface | DataType;
+		//ElementWithFeatures:
+		//	Entity | Interface;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Entity | Enum | Interface | DataType
+		//Entity | Interface
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Entity
 		public RuleCall getEntityParserRuleCall_0() { return cEntityParserRuleCall_0; }
 		
+		//Interface
+		public RuleCall getInterfaceParserRuleCall_1() { return cInterfaceParserRuleCall_1; }
+	}
+	public class AbstractElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "cz.lzaruba.modelx.ModelX.AbstractElement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cElementWithFeaturesParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cEnumParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDataTypeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//AbstractElement:
+		//	ElementWithFeatures | Enum | DataType;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ElementWithFeatures | Enum | DataType
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ElementWithFeatures
+		public RuleCall getElementWithFeaturesParserRuleCall_0() { return cElementWithFeaturesParserRuleCall_0; }
+		
 		//Enum
 		public RuleCall getEnumParserRuleCall_1() { return cEnumParserRuleCall_1; }
 		
-		//Interface
-		public RuleCall getInterfaceParserRuleCall_2() { return cInterfaceParserRuleCall_2; }
-		
 		//DataType
-		public RuleCall getDataTypeParserRuleCall_3() { return cDataTypeParserRuleCall_3; }
+		public RuleCall getDataTypeParserRuleCall_2() { return cDataTypeParserRuleCall_2; }
 	}
 	public class InterfaceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "cz.lzaruba.modelx.ModelX.Interface");
@@ -518,6 +533,7 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private final ModelElements pModel;
+	private final ElementWithFeaturesElements pElementWithFeatures;
 	private final AbstractElementElements pAbstractElement;
 	private final InterfaceElements pInterface;
 	private final EnumElements pEnum;
@@ -545,6 +561,7 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaXbase = gaXbase;
 		this.gaXtype = gaXtype;
 		this.pModel = new ModelElements();
+		this.pElementWithFeatures = new ElementWithFeaturesElements();
 		this.pAbstractElement = new AbstractElementElements();
 		this.pInterface = new InterfaceElements();
 		this.pEnum = new EnumElements();
@@ -600,8 +617,18 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 	
+	//ElementWithFeatures:
+	//	Entity | Interface;
+	public ElementWithFeaturesElements getElementWithFeaturesAccess() {
+		return pElementWithFeatures;
+	}
+	
+	public ParserRule getElementWithFeaturesRule() {
+		return getElementWithFeaturesAccess().getRule();
+	}
+	
 	//AbstractElement:
-	//	Entity | Enum | Interface | DataType;
+	//	ElementWithFeatures | Enum | DataType;
 	public AbstractElementElements getAbstractElementAccess() {
 		return pAbstractElement;
 	}

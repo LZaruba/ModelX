@@ -16,14 +16,13 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link cz.lzaruba.modelx.modelX.Entity#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.Entity#getInterfaces <em>Interfaces</em>}</li>
- *   <li>{@link cz.lzaruba.modelx.modelX.Entity#getFeatures <em>Features</em>}</li>
  * </ul>
  *
  * @see cz.lzaruba.modelx.modelX.ModelXPackage#getEntity()
  * @model
  * @generated
  */
-public interface Entity extends AbstractElement
+public interface Entity extends ElementWithFeatures
 {
   /**
    * Returns the value of the '<em><b>Super Type</b></em>' reference.
@@ -66,21 +65,5 @@ public interface Entity extends AbstractElement
    * @generated
    */
   EList<Interface> getInterfaces();
-
-  /**
-   * Returns the value of the '<em><b>Features</b></em>' containment reference list.
-   * The list contents are of type {@link cz.lzaruba.modelx.modelX.Feature}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Features</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Features</em>' containment reference list.
-   * @see cz.lzaruba.modelx.modelX.ModelXPackage#getEntity_Features()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Feature> getFeatures();
 
 } // Entity

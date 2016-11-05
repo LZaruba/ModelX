@@ -18,14 +18,13 @@ import org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotation;
  * <ul>
  *   <li>{@link cz.lzaruba.modelx.modelX.Interface#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.Interface#getSupertypes <em>Supertypes</em>}</li>
- *   <li>{@link cz.lzaruba.modelx.modelX.Interface#getFeatures <em>Features</em>}</li>
  * </ul>
  *
  * @see cz.lzaruba.modelx.modelX.ModelXPackage#getInterface()
  * @model
  * @generated
  */
-public interface Interface extends AbstractElement
+public interface Interface extends ElementWithFeatures
 {
   /**
    * Returns the value of the '<em><b>Annotations</b></em>' containment reference list.
@@ -58,21 +57,5 @@ public interface Interface extends AbstractElement
    * @generated
    */
   EList<Interface> getSupertypes();
-
-  /**
-   * Returns the value of the '<em><b>Features</b></em>' containment reference list.
-   * The list contents are of type {@link cz.lzaruba.modelx.modelX.Feature}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Features</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Features</em>' containment reference list.
-   * @see cz.lzaruba.modelx.modelX.ModelXPackage#getInterface_Features()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Feature> getFeatures();
 
 } // Interface

@@ -3,7 +3,6 @@
  */
 package cz.lzaruba.modelx.modelX.impl;
 
-import cz.lzaruba.modelx.modelX.Feature;
 import cz.lzaruba.modelx.modelX.Interface;
 import cz.lzaruba.modelx.modelX.ModelXPackage;
 
@@ -32,12 +31,11 @@ import org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotation;
  * <ul>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.InterfaceImpl#getAnnotations <em>Annotations</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.InterfaceImpl#getSupertypes <em>Supertypes</em>}</li>
- *   <li>{@link cz.lzaruba.modelx.modelX.impl.InterfaceImpl#getFeatures <em>Features</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class InterfaceImpl extends AbstractElementImpl implements Interface
+public class InterfaceImpl extends ElementWithFeaturesImpl implements Interface
 {
   /**
    * The cached value of the '{@link #getAnnotations() <em>Annotations</em>}' containment reference list.
@@ -58,16 +56,6 @@ public class InterfaceImpl extends AbstractElementImpl implements Interface
    * @ordered
    */
   protected EList<Interface> supertypes;
-
-  /**
-   * The cached value of the '{@link #getFeatures() <em>Features</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFeatures()
-   * @generated
-   * @ordered
-   */
-  protected EList<Feature> features;
 
   /**
    * <!-- begin-user-doc -->
@@ -123,20 +111,6 @@ public class InterfaceImpl extends AbstractElementImpl implements Interface
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Feature> getFeatures()
-  {
-    if (features == null)
-    {
-      features = new EObjectContainmentEList<Feature>(Feature.class, this, ModelXPackage.INTERFACE__FEATURES);
-    }
-    return features;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -144,8 +118,6 @@ public class InterfaceImpl extends AbstractElementImpl implements Interface
     {
       case ModelXPackage.INTERFACE__ANNOTATIONS:
         return ((InternalEList<?>)getAnnotations()).basicRemove(otherEnd, msgs);
-      case ModelXPackage.INTERFACE__FEATURES:
-        return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -164,8 +136,6 @@ public class InterfaceImpl extends AbstractElementImpl implements Interface
         return getAnnotations();
       case ModelXPackage.INTERFACE__SUPERTYPES:
         return getSupertypes();
-      case ModelXPackage.INTERFACE__FEATURES:
-        return getFeatures();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -189,10 +159,6 @@ public class InterfaceImpl extends AbstractElementImpl implements Interface
         getSupertypes().clear();
         getSupertypes().addAll((Collection<? extends Interface>)newValue);
         return;
-      case ModelXPackage.INTERFACE__FEATURES:
-        getFeatures().clear();
-        getFeatures().addAll((Collection<? extends Feature>)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -213,9 +179,6 @@ public class InterfaceImpl extends AbstractElementImpl implements Interface
       case ModelXPackage.INTERFACE__SUPERTYPES:
         getSupertypes().clear();
         return;
-      case ModelXPackage.INTERFACE__FEATURES:
-        getFeatures().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -234,8 +197,6 @@ public class InterfaceImpl extends AbstractElementImpl implements Interface
         return annotations != null && !annotations.isEmpty();
       case ModelXPackage.INTERFACE__SUPERTYPES:
         return supertypes != null && !supertypes.isEmpty();
-      case ModelXPackage.INTERFACE__FEATURES:
-        return features != null && !features.isEmpty();
     }
     return super.eIsSet(featureID);
   }

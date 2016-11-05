@@ -75,6 +75,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleElementWithFeatures
+entryRuleElementWithFeatures
+:
+{ before(grammarAccess.getElementWithFeaturesRule()); }
+	 ruleElementWithFeatures
+{ after(grammarAccess.getElementWithFeaturesRule()); } 
+	 EOF 
+;
+
+// Rule ElementWithFeatures
+ruleElementWithFeatures 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getElementWithFeaturesAccess().getAlternatives()); }
+		(rule__ElementWithFeatures__Alternatives)
+		{ after(grammarAccess.getElementWithFeaturesAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleAbstractElement
 entryRuleAbstractElement
 :
@@ -2290,15 +2315,36 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__ElementWithFeatures__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getElementWithFeaturesAccess().getEntityParserRuleCall_0()); }
+		ruleEntity
+		{ after(grammarAccess.getElementWithFeaturesAccess().getEntityParserRuleCall_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getElementWithFeaturesAccess().getInterfaceParserRuleCall_1()); }
+		ruleInterface
+		{ after(grammarAccess.getElementWithFeaturesAccess().getInterfaceParserRuleCall_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__AbstractElement__Alternatives
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getAbstractElementAccess().getEntityParserRuleCall_0()); }
-		ruleEntity
-		{ after(grammarAccess.getAbstractElementAccess().getEntityParserRuleCall_0()); }
+		{ before(grammarAccess.getAbstractElementAccess().getElementWithFeaturesParserRuleCall_0()); }
+		ruleElementWithFeatures
+		{ after(grammarAccess.getAbstractElementAccess().getElementWithFeaturesParserRuleCall_0()); }
 	)
 	|
 	(
@@ -2308,15 +2354,9 @@ rule__AbstractElement__Alternatives
 	)
 	|
 	(
-		{ before(grammarAccess.getAbstractElementAccess().getInterfaceParserRuleCall_2()); }
-		ruleInterface
-		{ after(grammarAccess.getAbstractElementAccess().getInterfaceParserRuleCall_2()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getAbstractElementAccess().getDataTypeParserRuleCall_3()); }
+		{ before(grammarAccess.getAbstractElementAccess().getDataTypeParserRuleCall_2()); }
 		ruleDataType
-		{ after(grammarAccess.getAbstractElementAccess().getDataTypeParserRuleCall_3()); }
+		{ after(grammarAccess.getAbstractElementAccess().getDataTypeParserRuleCall_2()); }
 	)
 ;
 finally {

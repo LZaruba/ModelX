@@ -5,8 +5,12 @@ generate modelX "http://www.lzaruba.cz/modelx/ModelX"
 Model:
 	elements+=Package*;
 	
+ElementWithFeatures:
+	Entity | Interface
+;
+	
 AbstractElement:
-	Entity | Enum | Interface | DataType;
+	ElementWithFeatures | Enum | DataType;
 	
 Interface:
 	(comment+=ML_COMMENT)?

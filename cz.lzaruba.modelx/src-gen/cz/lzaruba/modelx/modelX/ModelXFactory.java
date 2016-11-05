@@ -33,6 +33,15 @@ public interface ModelXFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Element With Features</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Element With Features</em>'.
+   * @generated
+   */
+  ElementWithFeatures createElementWithFeatures();
+
+  /**
    * Returns a new object of class '<em>Abstract Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

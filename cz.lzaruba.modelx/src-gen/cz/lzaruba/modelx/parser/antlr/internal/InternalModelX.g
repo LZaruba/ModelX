@@ -96,6 +96,42 @@ ruleModel returns [EObject current=null]
 	)*
 ;
 
+// Entry rule entryRuleElementWithFeatures
+entryRuleElementWithFeatures returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getElementWithFeaturesRule()); }
+	iv_ruleElementWithFeatures=ruleElementWithFeatures
+	{ $current=$iv_ruleElementWithFeatures.current; }
+	EOF;
+
+// Rule ElementWithFeatures
+ruleElementWithFeatures returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getElementWithFeaturesAccess().getEntityParserRuleCall_0());
+		}
+		this_Entity_0=ruleEntity
+		{
+			$current = $this_Entity_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getElementWithFeaturesAccess().getInterfaceParserRuleCall_1());
+		}
+		this_Interface_1=ruleInterface
+		{
+			$current = $this_Interface_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
 // Entry rule entryRuleAbstractElement
 entryRuleAbstractElement returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getAbstractElementRule()); }
@@ -113,11 +149,11 @@ ruleAbstractElement returns [EObject current=null]
 }:
 	(
 		{
-			newCompositeNode(grammarAccess.getAbstractElementAccess().getEntityParserRuleCall_0());
+			newCompositeNode(grammarAccess.getAbstractElementAccess().getElementWithFeaturesParserRuleCall_0());
 		}
-		this_Entity_0=ruleEntity
+		this_ElementWithFeatures_0=ruleElementWithFeatures
 		{
-			$current = $this_Entity_0.current;
+			$current = $this_ElementWithFeatures_0.current;
 			afterParserOrEnumRuleCall();
 		}
 		    |
@@ -131,20 +167,11 @@ ruleAbstractElement returns [EObject current=null]
 		}
 		    |
 		{
-			newCompositeNode(grammarAccess.getAbstractElementAccess().getInterfaceParserRuleCall_2());
+			newCompositeNode(grammarAccess.getAbstractElementAccess().getDataTypeParserRuleCall_2());
 		}
-		this_Interface_2=ruleInterface
+		this_DataType_2=ruleDataType
 		{
-			$current = $this_Interface_2.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getAbstractElementAccess().getDataTypeParserRuleCall_3());
-		}
-		this_DataType_3=ruleDataType
-		{
-			$current = $this_DataType_3.current;
+			$current = $this_DataType_2.current;
 			afterParserOrEnumRuleCall();
 		}
 	)
