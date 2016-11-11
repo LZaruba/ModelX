@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="modelx" version="11.1.1.201610211630">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="modelx" version="11.1.1.201610211630">
   <ownedViewpoints name="Model">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" titleExpression="feature:name" domainClass="Package" enablePopupBars="true">
+      <filters xsi:type="filter:CompositeFilterDescription" name="Reference Edges">
+        <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@edgeMappings[name='Reference']"/>
+      </filters>
+      <filters xsi:type="filter:CompositeFilterDescription" name="Reference Nodes">
+        <filters xsi:type="filter:MappingFilter" mappings="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']/@subNodeMappings[name='References']"/>
+      </filters>
       <defaultLayer name="Default">
         <edgeMappings name="InterfaceSuperTypes" sourceMapping="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']" targetMapping="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']" targetFinderExpression="feature:superTypes">
           <style targetArrow="InputClosedArrow" routingStyle="tree">
@@ -27,16 +33,24 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="Reference" sourceMapping="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']" targetMapping="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures'] //@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='Enum'] //@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='DataType']" sourceFinderExpression="feature:eContainer" domainClass="Feature" useDomainElement="true">
-          <style sizeComputationExpression="2">
+        <edgeMappings name="Reference" sourceMapping="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']" targetMapping="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures'] //@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='Enum'] //@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='DataType']" targetFinderExpression="feature:type" sourceFinderExpression="feature:eContainer" domainClass="Feature" useDomainElement="true">
+          <style>
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            <centerLabelStyleDescription>
+            <centerLabelStyleDescription showIcon="false" labelExpression="service:getLabel">
+              <labelFormat>italic</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
         <containerMappings name="ElementWithFeatures" domainClass="ElementWithFeatures" childrenPresentation="List">
-          <subNodeMappings name="Attribute" semanticCandidatesExpression="service:getAttributes" domainClass="Feature">
+          <subNodeMappings name="Attributes" semanticCandidatesExpression="service:getAttributes" domainClass="Feature">
+            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="service:getLabel" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="References" semanticCandidatesExpression="service:getReferences" domainClass="Feature">
             <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="service:getLabel" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

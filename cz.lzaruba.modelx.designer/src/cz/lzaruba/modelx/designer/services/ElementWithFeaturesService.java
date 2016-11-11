@@ -32,5 +32,14 @@ public class ElementWithFeaturesService {
 		return result;
 			
 	}
+	
+	public List<Feature> getReferences(ElementWithFeatures e) {
+		List<Feature> result = e.getFeatures().stream()
+			.filter(f -> {
+				return f.getType() instanceof ElementWithFeatures;
+			}).collect(Collectors.toList());
+		return result;
+			
+	}
 
 }

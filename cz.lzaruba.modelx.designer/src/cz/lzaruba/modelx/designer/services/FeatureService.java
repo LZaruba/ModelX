@@ -9,7 +9,8 @@ import cz.lzaruba.modelx.modelX.Feature;
 public class FeatureService {
 	
 	public String getLabel(Feature f) {
-		return f.getName() + " : " + getLabel(f.getType());
+		String prefix = (f.isRequired() ? "1" : "0") + ".." + (f.isMany() ? "*" : "1");
+		return prefix + " " + f.getName() + " : " + getLabel(f.getType());
 	}
 	
 	public String getLabel(AbstractElement element) {
@@ -26,6 +27,10 @@ public class FeatureService {
 			return dt.getType().getSimpleName();
 		}
 		return "" + element;
+	}
+	
+	public Boolean isReference(Feature f) {
+		return f.getType() instanceof ElementWithFeatures;
 	}
 
 }
