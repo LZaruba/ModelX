@@ -30,7 +30,7 @@ import org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotation;
  * </p>
  * <ul>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.InterfaceImpl#getAnnotations <em>Annotations</em>}</li>
- *   <li>{@link cz.lzaruba.modelx.modelX.impl.InterfaceImpl#getSupertypes <em>Supertypes</em>}</li>
+ *   <li>{@link cz.lzaruba.modelx.modelX.impl.InterfaceImpl#getSuperTypes <em>Super Types</em>}</li>
  * </ul>
  *
  * @generated
@@ -48,14 +48,14 @@ public class InterfaceImpl extends ElementWithFeaturesImpl implements Interface
   protected EList<XAnnotation> annotations;
 
   /**
-   * The cached value of the '{@link #getSupertypes() <em>Supertypes</em>}' reference list.
+   * The cached value of the '{@link #getSuperTypes() <em>Super Types</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getSupertypes()
+   * @see #getSuperTypes()
    * @generated
    * @ordered
    */
-  protected EList<Interface> supertypes;
+  protected EList<Interface> superTypes;
 
   /**
    * <!-- begin-user-doc -->
@@ -97,13 +97,13 @@ public class InterfaceImpl extends ElementWithFeaturesImpl implements Interface
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Interface> getSupertypes()
+  public EList<Interface> getSuperTypes()
   {
-    if (supertypes == null)
+    if (superTypes == null)
     {
-      supertypes = new EObjectResolvingEList<Interface>(Interface.class, this, ModelXPackage.INTERFACE__SUPERTYPES);
+      superTypes = new EObjectResolvingEList<Interface>(Interface.class, this, ModelXPackage.INTERFACE__SUPER_TYPES);
     }
-    return supertypes;
+    return superTypes;
   }
 
   /**
@@ -134,8 +134,8 @@ public class InterfaceImpl extends ElementWithFeaturesImpl implements Interface
     {
       case ModelXPackage.INTERFACE__ANNOTATIONS:
         return getAnnotations();
-      case ModelXPackage.INTERFACE__SUPERTYPES:
-        return getSupertypes();
+      case ModelXPackage.INTERFACE__SUPER_TYPES:
+        return getSuperTypes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -155,9 +155,9 @@ public class InterfaceImpl extends ElementWithFeaturesImpl implements Interface
         getAnnotations().clear();
         getAnnotations().addAll((Collection<? extends XAnnotation>)newValue);
         return;
-      case ModelXPackage.INTERFACE__SUPERTYPES:
-        getSupertypes().clear();
-        getSupertypes().addAll((Collection<? extends Interface>)newValue);
+      case ModelXPackage.INTERFACE__SUPER_TYPES:
+        getSuperTypes().clear();
+        getSuperTypes().addAll((Collection<? extends Interface>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -176,8 +176,8 @@ public class InterfaceImpl extends ElementWithFeaturesImpl implements Interface
       case ModelXPackage.INTERFACE__ANNOTATIONS:
         getAnnotations().clear();
         return;
-      case ModelXPackage.INTERFACE__SUPERTYPES:
-        getSupertypes().clear();
+      case ModelXPackage.INTERFACE__SUPER_TYPES:
+        getSuperTypes().clear();
         return;
     }
     super.eUnset(featureID);
@@ -195,8 +195,8 @@ public class InterfaceImpl extends ElementWithFeaturesImpl implements Interface
     {
       case ModelXPackage.INTERFACE__ANNOTATIONS:
         return annotations != null && !annotations.isEmpty();
-      case ModelXPackage.INTERFACE__SUPERTYPES:
-        return supertypes != null && !supertypes.isEmpty();
+      case ModelXPackage.INTERFACE__SUPER_TYPES:
+        return superTypes != null && !superTypes.isEmpty();
     }
     return super.eIsSet(featureID);
   }

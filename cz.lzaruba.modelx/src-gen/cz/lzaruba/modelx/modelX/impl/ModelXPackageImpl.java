@@ -7,6 +7,7 @@ import cz.lzaruba.modelx.modelX.AbstractElement;
 import cz.lzaruba.modelx.modelX.DataType;
 import cz.lzaruba.modelx.modelX.ElementWithFeatures;
 import cz.lzaruba.modelx.modelX.Entity;
+import cz.lzaruba.modelx.modelX.EnumLiteral;
 import cz.lzaruba.modelx.modelX.Feature;
 import cz.lzaruba.modelx.modelX.Import;
 import cz.lzaruba.modelx.modelX.Interface;
@@ -69,6 +70,13 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * @generated
    */
   private EClass enumEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass enumLiteralEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -267,7 +275,7 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getInterface_Supertypes()
+  public EReference getInterface_SuperTypes()
   {
     return (EReference)interfaceEClass.getEStructuralFeatures().get(1);
   }
@@ -287,9 +295,29 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEnum_Literals()
+  public EReference getEnum_Literals()
   {
-    return (EAttribute)enumEClass.getEStructuralFeatures().get(0);
+    return (EReference)enumEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEnumLiteral()
+  {
+    return enumLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getEnumLiteral_Name()
+  {
+    return (EAttribute)enumLiteralEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -397,9 +425,19 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getEntity_Abstract()
+  {
+    return (EAttribute)entityEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getEntity_SuperType()
   {
-    return (EReference)entityEClass.getEStructuralFeatures().get(0);
+    return (EReference)entityEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -409,7 +447,7 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
    */
   public EReference getEntity_Interfaces()
   {
-    return (EReference)entityEClass.getEStructuralFeatures().get(1);
+    return (EReference)entityEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -514,10 +552,13 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
 
     interfaceEClass = createEClass(INTERFACE);
     createEReference(interfaceEClass, INTERFACE__ANNOTATIONS);
-    createEReference(interfaceEClass, INTERFACE__SUPERTYPES);
+    createEReference(interfaceEClass, INTERFACE__SUPER_TYPES);
 
     enumEClass = createEClass(ENUM);
-    createEAttribute(enumEClass, ENUM__LITERALS);
+    createEReference(enumEClass, ENUM__LITERALS);
+
+    enumLiteralEClass = createEClass(ENUM_LITERAL);
+    createEAttribute(enumLiteralEClass, ENUM_LITERAL__NAME);
 
     dataTypeEClass = createEClass(DATA_TYPE);
     createEReference(dataTypeEClass, DATA_TYPE__TYPE);
@@ -532,6 +573,7 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
     createEReference(packageEClass, PACKAGE__ELEMENTS);
 
     entityEClass = createEClass(ENTITY);
+    createEAttribute(entityEClass, ENTITY__ABSTRACT);
     createEReference(entityEClass, ENTITY__SUPER_TYPE);
     createEReference(entityEClass, ENTITY__INTERFACES);
 
@@ -595,10 +637,13 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
 
     initEClass(interfaceEClass, Interface.class, "Interface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getInterface_Annotations(), theXAnnotationsPackage.getXAnnotation(), null, "annotations", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getInterface_Supertypes(), this.getInterface(), null, "supertypes", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInterface_SuperTypes(), this.getInterface(), null, "superTypes", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumEClass, cz.lzaruba.modelx.modelX.Enum.class, "Enum", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEnum_Literals(), ecorePackage.getEString(), "literals", null, 0, -1, cz.lzaruba.modelx.modelX.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEnum_Literals(), this.getEnumLiteral(), null, "literals", null, 0, -1, cz.lzaruba.modelx.modelX.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(enumLiteralEClass, EnumLiteral.class, "EnumLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEnumLiteral_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataTypeEClass, DataType.class, "DataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDataType_Type(), theTypesPackage.getJvmParameterizedTypeReference(), null, "type", null, 0, 1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -613,6 +658,7 @@ public class ModelXPackageImpl extends EPackageImpl implements ModelXPackage
     initEReference(getPackage_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, cz.lzaruba.modelx.modelX.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEntity_Abstract(), ecorePackage.getEBoolean(), "abstract", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_SuperType(), this.getEntity(), null, "superType", null, 0, 1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntity_Interfaces(), this.getInterface(), null, "interfaces", null, 0, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

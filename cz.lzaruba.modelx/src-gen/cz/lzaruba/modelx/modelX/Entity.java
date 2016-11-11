@@ -14,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link cz.lzaruba.modelx.modelX.Entity#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.Entity#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.Entity#getInterfaces <em>Interfaces</em>}</li>
  * </ul>
@@ -24,6 +25,32 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Entity extends ElementWithFeatures
 {
+  /**
+   * Returns the value of the '<em><b>Abstract</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Abstract</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Abstract</em>' attribute.
+   * @see #setAbstract(boolean)
+   * @see cz.lzaruba.modelx.modelX.ModelXPackage#getEntity_Abstract()
+   * @model
+   * @generated
+   */
+  boolean isAbstract();
+
+  /**
+   * Sets the value of the '{@link cz.lzaruba.modelx.modelX.Entity#isAbstract <em>Abstract</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Abstract</em>' attribute.
+   * @see #isAbstract()
+   * @generated
+   */
+  void setAbstract(boolean value);
+
   /**
    * Returns the value of the '<em><b>Super Type</b></em>' reference.
    * <!-- begin-user-doc -->

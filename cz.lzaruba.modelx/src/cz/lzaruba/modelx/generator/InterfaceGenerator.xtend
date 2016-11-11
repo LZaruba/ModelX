@@ -29,7 +29,7 @@ class InterfaceGenerator {
 			«a.value»
 		«ENDFOR»
 		public interface «i.name» 
-		«FOR t : i.supertypes BEFORE 'extends ' SEPARATOR ', ' »
+		«FOR t : i.superTypes BEFORE 'extends ' SEPARATOR ', ' »
 			«t.qualifiedName»
 		«ENDFOR»
 		{

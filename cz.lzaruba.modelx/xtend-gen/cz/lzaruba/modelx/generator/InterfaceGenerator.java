@@ -67,9 +67,9 @@ public class InterfaceGenerator {
     _builder.append(" ");
     _builder.newLineIfNotEmpty();
     {
-      EList<Interface> _supertypes = i.getSupertypes();
+      EList<Interface> _superTypes = i.getSuperTypes();
       boolean _hasElements = false;
-      for(final Interface t : _supertypes) {
+      for(final Interface t : _superTypes) {
         if (!_hasElements) {
           _hasElements = true;
           _builder.append("extends ", "");

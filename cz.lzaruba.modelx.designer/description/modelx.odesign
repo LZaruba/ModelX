@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="modelx" version="11.1.1.201610211630">
+  <ownedViewpoints name="Model">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" titleExpression="feature:name" domainClass="Package" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <edgeMappings name="InterfaceSuperTypes" sourceMapping="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']" targetMapping="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']" targetFinderExpression="feature:superTypes">
+          <style targetArrow="InputClosedArrow" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="EntitySuperType" sourceMapping="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']" targetMapping="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']" targetFinderExpression="feature:superType">
+          <style targetArrow="InputClosedArrow" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Inherits" sourceMapping="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']" targetMapping="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']" targetFinderExpression="feature:interfaces">
+          <style lineStyle="dash" targetArrow="InputClosedArrow" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Reference" sourceMapping="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']" targetMapping="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures'] //@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='Enum'] //@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='DataType']" sourceFinderExpression="feature:eContainer" domainClass="Feature" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="ElementWithFeatures" domainClass="ElementWithFeatures" childrenPresentation="List">
+          <subNodeMappings name="Attribute" semanticCandidatesExpression="service:getAttributes" domainClass="Feature">
+            <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="service:getLabel" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" showIcon="false" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='Entity']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+          <conditionnalStyles predicateExpression="service:isInterface">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" showIcon="false" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='Interface']">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:isAbstract">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" showIcon="false" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='AbstractEntity']">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </conditionnalStyles>
+        </containerMappings>
+        <containerMappings name="Enum" domainClass="Enum" childrenPresentation="List">
+          <subNodeMappings name="Literals" semanticCandidatesExpression="feature:literals" domainClass="EnumLiteral">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='Enum']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="DataType" domainClass="DataType" childrenPresentation="List">
+          <subNodeMappings name="InstanceName" semanticCandidatesExpression="var:self" domainClass="DataType">
+            <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="service:getLabel" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelFormat>italic</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" widthComputationExpression="12" heightComputationExpression="10" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='DataType']">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="cz.lzaruba.modelx.designer.Services"/>
+    <ownedJavaExtensions qualifiedClassName="cz.lzaruba.modelx.designer.services.ElementWithFeaturesService"/>
+    <ownedJavaExtensions qualifiedClassName="cz.lzaruba.modelx.designer.services.FeatureService"/>
+  </ownedViewpoints>
+  <userColorsPalettes>
+    <entries xsi:type="description:UserFixedColor" red="255" green="252" blue="216" name="Entity"/>
+    <entries xsi:type="description:UserFixedColor" red="221" green="236" blue="202" name="Enum"/>
+    <entries xsi:type="description:UserFixedColor" red="255" green="211" blue="218" name="Interface"/>
+    <entries xsi:type="description:UserFixedColor" red="228" green="228" blue="228" name="AbstractEntity"/>
+    <entries xsi:type="description:UserFixedColor" red="195" green="171" blue="255" name="DataType"/>
+  </userColorsPalettes>
+</description:Group>

@@ -7,6 +7,7 @@ import cz.lzaruba.modelx.modelX.AbstractElement;
 import cz.lzaruba.modelx.modelX.DataType;
 import cz.lzaruba.modelx.modelX.ElementWithFeatures;
 import cz.lzaruba.modelx.modelX.Entity;
+import cz.lzaruba.modelx.modelX.EnumLiteral;
 import cz.lzaruba.modelx.modelX.Feature;
 import cz.lzaruba.modelx.modelX.Import;
 import cz.lzaruba.modelx.modelX.Interface;
@@ -117,6 +118,13 @@ public class ModelXSwitch<T> extends Switch<T>
         cz.lzaruba.modelx.modelX.Enum enum_ = (cz.lzaruba.modelx.modelX.Enum)theEObject;
         T result = caseEnum(enum_);
         if (result == null) result = caseAbstractElement(enum_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ModelXPackage.ENUM_LITERAL:
+      {
+        EnumLiteral enumLiteral = (EnumLiteral)theEObject;
+        T result = caseEnumLiteral(enumLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -238,6 +246,22 @@ public class ModelXSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseEnum(cz.lzaruba.modelx.modelX.Enum object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Enum Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Enum Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEnumLiteral(EnumLiteral object)
   {
     return null;
   }

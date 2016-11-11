@@ -6,6 +6,7 @@ package cz.lzaruba.modelx.serializer;
 import com.google.inject.Inject;
 import cz.lzaruba.modelx.modelX.DataType;
 import cz.lzaruba.modelx.modelX.Entity;
+import cz.lzaruba.modelx.modelX.EnumLiteral;
 import cz.lzaruba.modelx.modelX.Feature;
 import cz.lzaruba.modelx.modelX.Import;
 import cz.lzaruba.modelx.modelX.Interface;
@@ -93,6 +94,9 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 				return; 
 			case ModelXPackage.ENUM:
 				sequence_Enum(context, (cz.lzaruba.modelx.modelX.Enum) semanticObject); 
+				return; 
+			case ModelXPackage.ENUM_LITERAL:
+				sequence_EnumLiteral(context, (EnumLiteral) semanticObject); 
 				return; 
 			case ModelXPackage.FEATURE:
 				sequence_Feature(context, (Feature) semanticObject); 
@@ -434,10 +438,35 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	 *     Entity returns Entity
 	 *
 	 * Constraint:
-	 *     (comment+=ML_COMMENT? name=ValidID superType=[Entity|ID]? (interfaces+=[Interface|ID] interfaces+=[Interface|ID]*)? features+=Feature*)
+	 *     (
+	 *         comment+=ML_COMMENT? 
+	 *         abstract?='abstract'? 
+	 *         name=ValidID 
+	 *         superType=[Entity|ID]? 
+	 *         (interfaces+=[Interface|ID] interfaces+=[Interface|ID]*)? 
+	 *         features+=Feature*
+	 *     )
 	 */
 	protected void sequence_Entity(ISerializationContext context, Entity semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     EnumLiteral returns EnumLiteral
+	 *
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_EnumLiteral(ISerializationContext context, EnumLiteral semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, ModelXPackage.Literals.ENUM_LITERAL__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ModelXPackage.Literals.ENUM_LITERAL__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getEnumLiteralAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	
@@ -447,7 +476,7 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	 *     Enum returns Enum
 	 *
 	 * Constraint:
-	 *     (comment+=ML_COMMENT? name=ValidID literals+=ID*)
+	 *     (comment+=ML_COMMENT? name=ValidID literals+=EnumLiteral*)
 	 */
 	protected void sequence_Enum(ISerializationContext context, cz.lzaruba.modelx.modelX.Enum semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -491,7 +520,7 @@ public class ModelXSemanticSequencer extends XbaseWithAnnotationsSemanticSequenc
 	 *     Interface returns Interface
 	 *
 	 * Constraint:
-	 *     (comment+=ML_COMMENT? annotations+=XAnnotation* name=ValidID (supertypes+=[Interface|ID] supertypes+=[Interface|ID]*)? features+=Feature*)
+	 *     (comment+=ML_COMMENT? annotations+=XAnnotation* name=ValidID (superTypes+=[Interface|ID] superTypes+=[Interface|ID]*)? features+=Feature*)
 	 */
 	protected void sequence_Interface(ISerializationContext context, Interface semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

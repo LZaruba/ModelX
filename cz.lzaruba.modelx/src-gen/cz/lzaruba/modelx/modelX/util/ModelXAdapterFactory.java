@@ -7,6 +7,7 @@ import cz.lzaruba.modelx.modelX.AbstractElement;
 import cz.lzaruba.modelx.modelX.DataType;
 import cz.lzaruba.modelx.modelX.ElementWithFeatures;
 import cz.lzaruba.modelx.modelX.Entity;
+import cz.lzaruba.modelx.modelX.EnumLiteral;
 import cz.lzaruba.modelx.modelX.Feature;
 import cz.lzaruba.modelx.modelX.Import;
 import cz.lzaruba.modelx.modelX.Interface;
@@ -107,6 +108,11 @@ public class ModelXAdapterFactory extends AdapterFactoryImpl
       public Adapter caseEnum(cz.lzaruba.modelx.modelX.Enum object)
       {
         return createEnumAdapter();
+      }
+      @Override
+      public Adapter caseEnumLiteral(EnumLiteral object)
+      {
+        return createEnumLiteralAdapter();
       }
       @Override
       public Adapter caseDataType(DataType object)
@@ -226,6 +232,21 @@ public class ModelXAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createEnumAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link cz.lzaruba.modelx.modelX.EnumLiteral <em>Enum Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see cz.lzaruba.modelx.modelX.EnumLiteral
+   * @generated
+   */
+  public Adapter createEnumLiteralAdapter()
   {
     return null;
   }

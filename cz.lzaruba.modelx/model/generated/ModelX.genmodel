@@ -18,10 +18,13 @@
     </genClasses>
     <genClasses ecoreClass="ModelX.ecore#//Interface">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ModelX.ecore#//Interface/annotations"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ModelX.ecore#//Interface/supertypes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ModelX.ecore#//Interface/superTypes"/>
     </genClasses>
     <genClasses ecoreClass="ModelX.ecore#//Enum">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ModelX.ecore#//Enum/literals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ModelX.ecore#//Enum/literals"/>
+    </genClasses>
+    <genClasses ecoreClass="ModelX.ecore#//EnumLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ModelX.ecore#//EnumLiteral/name"/>
     </genClasses>
     <genClasses ecoreClass="ModelX.ecore#//DataType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ModelX.ecore#//DataType/type"/>
@@ -36,6 +39,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ModelX.ecore#//Package/elements"/>
     </genClasses>
     <genClasses ecoreClass="ModelX.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ModelX.ecore#//Entity/abstract"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ModelX.ecore#//Entity/superType"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ModelX.ecore#//Entity/interfaces"/>
     </genClasses>

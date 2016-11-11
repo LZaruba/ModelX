@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link cz.lzaruba.modelx.modelX.impl.EntityImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.EntityImpl#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link cz.lzaruba.modelx.modelX.impl.EntityImpl#getInterfaces <em>Interfaces</em>}</li>
  * </ul>
@@ -36,6 +37,26 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class EntityImpl extends ElementWithFeaturesImpl implements Entity
 {
+  /**
+   * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAbstract()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean ABSTRACT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAbstract()
+   * @generated
+   * @ordered
+   */
+  protected boolean abstract_ = ABSTRACT_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getSuperType() <em>Super Type</em>}' reference.
    * <!-- begin-user-doc -->
@@ -75,6 +96,29 @@ public class EntityImpl extends ElementWithFeaturesImpl implements Entity
   protected EClass eStaticClass()
   {
     return ModelXPackage.Literals.ENTITY;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isAbstract()
+  {
+    return abstract_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAbstract(boolean newAbstract)
+  {
+    boolean oldAbstract = abstract_;
+    abstract_ = newAbstract;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ModelXPackage.ENTITY__ABSTRACT, oldAbstract, abstract_));
   }
 
   /**
@@ -144,6 +188,8 @@ public class EntityImpl extends ElementWithFeaturesImpl implements Entity
   {
     switch (featureID)
     {
+      case ModelXPackage.ENTITY__ABSTRACT:
+        return isAbstract();
       case ModelXPackage.ENTITY__SUPER_TYPE:
         if (resolve) return getSuperType();
         return basicGetSuperType();
@@ -164,6 +210,9 @@ public class EntityImpl extends ElementWithFeaturesImpl implements Entity
   {
     switch (featureID)
     {
+      case ModelXPackage.ENTITY__ABSTRACT:
+        setAbstract((Boolean)newValue);
+        return;
       case ModelXPackage.ENTITY__SUPER_TYPE:
         setSuperType((Entity)newValue);
         return;
@@ -185,6 +234,9 @@ public class EntityImpl extends ElementWithFeaturesImpl implements Entity
   {
     switch (featureID)
     {
+      case ModelXPackage.ENTITY__ABSTRACT:
+        setAbstract(ABSTRACT_EDEFAULT);
+        return;
       case ModelXPackage.ENTITY__SUPER_TYPE:
         setSuperType((Entity)null);
         return;
@@ -205,12 +257,31 @@ public class EntityImpl extends ElementWithFeaturesImpl implements Entity
   {
     switch (featureID)
     {
+      case ModelXPackage.ENTITY__ABSTRACT:
+        return abstract_ != ABSTRACT_EDEFAULT;
       case ModelXPackage.ENTITY__SUPER_TYPE:
         return superType != null;
       case ModelXPackage.ENTITY__INTERFACES:
         return interfaces != null && !interfaces.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (abstract: ");
+    result.append(abstract_);
+    result.append(')');
+    return result.toString();
   }
 
 } //EntityImpl

@@ -17,7 +17,7 @@ import org.eclipse.xtext.xbase.annotations.xAnnotations.XAnnotation;
  * </p>
  * <ul>
  *   <li>{@link cz.lzaruba.modelx.modelX.Interface#getAnnotations <em>Annotations</em>}</li>
- *   <li>{@link cz.lzaruba.modelx.modelX.Interface#getSupertypes <em>Supertypes</em>}</li>
+ *   <li>{@link cz.lzaruba.modelx.modelX.Interface#getSuperTypes <em>Super Types</em>}</li>
  * </ul>
  *
  * @see cz.lzaruba.modelx.modelX.ModelXPackage#getInterface()
@@ -43,19 +43,19 @@ public interface Interface extends ElementWithFeatures
   EList<XAnnotation> getAnnotations();
 
   /**
-   * Returns the value of the '<em><b>Supertypes</b></em>' reference list.
+   * Returns the value of the '<em><b>Super Types</b></em>' reference list.
    * The list contents are of type {@link cz.lzaruba.modelx.modelX.Interface}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Supertypes</em>' reference list isn't clear,
+   * If the meaning of the '<em>Super Types</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Supertypes</em>' reference list.
-   * @see cz.lzaruba.modelx.modelX.ModelXPackage#getInterface_Supertypes()
+   * @return the value of the '<em>Super Types</em>' reference list.
+   * @see cz.lzaruba.modelx.modelX.ModelXPackage#getInterface_SuperTypes()
    * @model
    * @generated
    */
-  EList<Interface> getSupertypes();
+  EList<Interface> getSuperTypes();
 
 } // Interface

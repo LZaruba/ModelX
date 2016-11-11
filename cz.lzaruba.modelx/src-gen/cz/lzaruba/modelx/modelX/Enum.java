@@ -24,19 +24,19 @@ import org.eclipse.emf.common.util.EList;
 public interface Enum extends AbstractElement
 {
   /**
-   * Returns the value of the '<em><b>Literals</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Literals</b></em>' containment reference list.
+   * The list contents are of type {@link cz.lzaruba.modelx.modelX.EnumLiteral}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Literals</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Literals</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Literals</em>' attribute list.
+   * @return the value of the '<em>Literals</em>' containment reference list.
    * @see cz.lzaruba.modelx.modelX.ModelXPackage#getEnum_Literals()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getLiterals();
+  EList<EnumLiteral> getLiterals();
 
 } // Enum

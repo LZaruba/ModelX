@@ -94,14 +94,14 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameValidIDParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cExtendsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cSupertypesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cSupertypesInterfaceCrossReference_4_1_0 = (CrossReference)cSupertypesAssignment_4_1.eContents().get(0);
-		private final RuleCall cSupertypesInterfaceIDTerminalRuleCall_4_1_0_1 = (RuleCall)cSupertypesInterfaceCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cSuperTypesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cSuperTypesInterfaceCrossReference_4_1_0 = (CrossReference)cSuperTypesAssignment_4_1.eContents().get(0);
+		private final RuleCall cSuperTypesInterfaceIDTerminalRuleCall_4_1_0_1 = (RuleCall)cSuperTypesInterfaceCrossReference_4_1_0.eContents().get(1);
 		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
 		private final Keyword cCommaKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
-		private final Assignment cSupertypesAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
-		private final CrossReference cSupertypesInterfaceCrossReference_4_2_1_0 = (CrossReference)cSupertypesAssignment_4_2_1.eContents().get(0);
-		private final RuleCall cSupertypesInterfaceIDTerminalRuleCall_4_2_1_0_1 = (RuleCall)cSupertypesInterfaceCrossReference_4_2_1_0.eContents().get(1);
+		private final Assignment cSuperTypesAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
+		private final CrossReference cSuperTypesInterfaceCrossReference_4_2_1_0 = (CrossReference)cSuperTypesAssignment_4_2_1.eContents().get(0);
+		private final RuleCall cSuperTypesInterfaceIDTerminalRuleCall_4_2_1_0_1 = (RuleCall)cSuperTypesInterfaceCrossReference_4_2_1_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cFeaturesAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cFeaturesFeatureParserRuleCall_6_0 = (RuleCall)cFeaturesAssignment_6.eContents().get(0);
@@ -110,13 +110,13 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 		//Interface:
 		//	comment+=ML_COMMENT?
 		//	annotations+=XAnnotation*
-		//	'interface' name=ValidID ('extends' supertypes+=[Interface] (',' supertypes+=[Interface])*)? '{'
+		//	'interface' name=ValidID ('extends' superTypes+=[Interface] (',' superTypes+=[Interface])*)? '{'
 		//	features+=Feature*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//comment+=ML_COMMENT? annotations+=XAnnotation* 'interface' name=ValidID ('extends' supertypes+=[Interface] (','
-		//supertypes+=[Interface])*)? '{' features+=Feature* '}'
+		//comment+=ML_COMMENT? annotations+=XAnnotation* 'interface' name=ValidID ('extends' superTypes+=[Interface] (','
+		//superTypes+=[Interface])*)? '{' features+=Feature* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//comment+=ML_COMMENT?
@@ -140,35 +140,35 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 		//ValidID
 		public RuleCall getNameValidIDParserRuleCall_3_0() { return cNameValidIDParserRuleCall_3_0; }
 		
-		//('extends' supertypes+=[Interface] (',' supertypes+=[Interface])*)?
+		//('extends' superTypes+=[Interface] (',' superTypes+=[Interface])*)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//'extends'
 		public Keyword getExtendsKeyword_4_0() { return cExtendsKeyword_4_0; }
 		
-		//supertypes+=[Interface]
-		public Assignment getSupertypesAssignment_4_1() { return cSupertypesAssignment_4_1; }
+		//superTypes+=[Interface]
+		public Assignment getSuperTypesAssignment_4_1() { return cSuperTypesAssignment_4_1; }
 		
 		//[Interface]
-		public CrossReference getSupertypesInterfaceCrossReference_4_1_0() { return cSupertypesInterfaceCrossReference_4_1_0; }
+		public CrossReference getSuperTypesInterfaceCrossReference_4_1_0() { return cSuperTypesInterfaceCrossReference_4_1_0; }
 		
 		//ID
-		public RuleCall getSupertypesInterfaceIDTerminalRuleCall_4_1_0_1() { return cSupertypesInterfaceIDTerminalRuleCall_4_1_0_1; }
+		public RuleCall getSuperTypesInterfaceIDTerminalRuleCall_4_1_0_1() { return cSuperTypesInterfaceIDTerminalRuleCall_4_1_0_1; }
 		
-		//(',' supertypes+=[Interface])*
+		//(',' superTypes+=[Interface])*
 		public Group getGroup_4_2() { return cGroup_4_2; }
 		
 		//','
 		public Keyword getCommaKeyword_4_2_0() { return cCommaKeyword_4_2_0; }
 		
-		//supertypes+=[Interface]
-		public Assignment getSupertypesAssignment_4_2_1() { return cSupertypesAssignment_4_2_1; }
+		//superTypes+=[Interface]
+		public Assignment getSuperTypesAssignment_4_2_1() { return cSuperTypesAssignment_4_2_1; }
 		
 		//[Interface]
-		public CrossReference getSupertypesInterfaceCrossReference_4_2_1_0() { return cSupertypesInterfaceCrossReference_4_2_1_0; }
+		public CrossReference getSuperTypesInterfaceCrossReference_4_2_1_0() { return cSuperTypesInterfaceCrossReference_4_2_1_0; }
 		
 		//ID
-		public RuleCall getSupertypesInterfaceIDTerminalRuleCall_4_2_1_0_1() { return cSupertypesInterfaceIDTerminalRuleCall_4_2_1_0_1; }
+		public RuleCall getSuperTypesInterfaceIDTerminalRuleCall_4_2_1_0_1() { return cSuperTypesInterfaceIDTerminalRuleCall_4_2_1_0_1; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
@@ -192,17 +192,17 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameValidIDParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cLiteralsAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cLiteralsIDTerminalRuleCall_4_0 = (RuleCall)cLiteralsAssignment_4.eContents().get(0);
+		private final RuleCall cLiteralsEnumLiteralParserRuleCall_4_0 = (RuleCall)cLiteralsAssignment_4.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Enum:
 		//	comment+=ML_COMMENT?
 		//	'enum' name=ValidID '{'
-		//	literals+=ID*
+		//	literals+=EnumLiteral*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//comment+=ML_COMMENT? 'enum' name=ValidID '{' literals+=ID* '}'
+		//comment+=ML_COMMENT? 'enum' name=ValidID '{' literals+=EnumLiteral* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//comment+=ML_COMMENT?
@@ -223,14 +223,29 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 		
-		//literals+=ID*
+		//literals+=EnumLiteral*
 		public Assignment getLiteralsAssignment_4() { return cLiteralsAssignment_4; }
 		
-		//ID
-		public RuleCall getLiteralsIDTerminalRuleCall_4_0() { return cLiteralsIDTerminalRuleCall_4_0; }
+		//EnumLiteral
+		public RuleCall getLiteralsEnumLiteralParserRuleCall_4_0() { return cLiteralsEnumLiteralParserRuleCall_4_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+	}
+	public class EnumLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "cz.lzaruba.modelx.ModelX.EnumLiteral");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//EnumLiteral:
+		//	name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID
+		public Assignment getNameAssignment() { return cNameAssignment; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
 	}
 	public class DataTypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "cz.lzaruba.modelx.ModelX.DataType");
@@ -363,39 +378,41 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cCommentAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cCommentML_COMMENTTerminalRuleCall_0_0 = (RuleCall)cCommentAssignment_0.eContents().get(0);
-		private final Keyword cEntityKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNameValidIDParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cExtendsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cSuperTypeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final CrossReference cSuperTypeEntityCrossReference_3_1_0 = (CrossReference)cSuperTypeAssignment_3_1.eContents().get(0);
-		private final RuleCall cSuperTypeEntityIDTerminalRuleCall_3_1_0_1 = (RuleCall)cSuperTypeEntityCrossReference_3_1_0.eContents().get(1);
+		private final Assignment cAbstractAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cAbstractAbstractKeyword_1_0 = (Keyword)cAbstractAssignment_1.eContents().get(0);
+		private final Keyword cEntityKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cNameValidIDParserRuleCall_3_0 = (RuleCall)cNameAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cImplementsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cInterfacesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cInterfacesInterfaceCrossReference_4_1_0 = (CrossReference)cInterfacesAssignment_4_1.eContents().get(0);
-		private final RuleCall cInterfacesInterfaceIDTerminalRuleCall_4_1_0_1 = (RuleCall)cInterfacesInterfaceCrossReference_4_1_0.eContents().get(1);
-		private final Group cGroup_4_2 = (Group)cGroup_4.eContents().get(2);
-		private final Keyword cCommaKeyword_4_2_0 = (Keyword)cGroup_4_2.eContents().get(0);
-		private final Assignment cInterfacesAssignment_4_2_1 = (Assignment)cGroup_4_2.eContents().get(1);
-		private final CrossReference cInterfacesInterfaceCrossReference_4_2_1_0 = (CrossReference)cInterfacesAssignment_4_2_1.eContents().get(0);
-		private final RuleCall cInterfacesInterfaceIDTerminalRuleCall_4_2_1_0_1 = (RuleCall)cInterfacesInterfaceCrossReference_4_2_1_0.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cFeaturesAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cFeaturesFeatureParserRuleCall_6_0 = (RuleCall)cFeaturesAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cExtendsKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cSuperTypeAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cSuperTypeEntityCrossReference_4_1_0 = (CrossReference)cSuperTypeAssignment_4_1.eContents().get(0);
+		private final RuleCall cSuperTypeEntityIDTerminalRuleCall_4_1_0_1 = (RuleCall)cSuperTypeEntityCrossReference_4_1_0.eContents().get(1);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cImplementsKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cInterfacesAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final CrossReference cInterfacesInterfaceCrossReference_5_1_0 = (CrossReference)cInterfacesAssignment_5_1.eContents().get(0);
+		private final RuleCall cInterfacesInterfaceIDTerminalRuleCall_5_1_0_1 = (RuleCall)cInterfacesInterfaceCrossReference_5_1_0.eContents().get(1);
+		private final Group cGroup_5_2 = (Group)cGroup_5.eContents().get(2);
+		private final Keyword cCommaKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
+		private final Assignment cInterfacesAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
+		private final CrossReference cInterfacesInterfaceCrossReference_5_2_1_0 = (CrossReference)cInterfacesAssignment_5_2_1.eContents().get(0);
+		private final RuleCall cInterfacesInterfaceIDTerminalRuleCall_5_2_1_0_1 = (RuleCall)cInterfacesInterfaceCrossReference_5_2_1_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cFeaturesAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cFeaturesFeatureParserRuleCall_7_0 = (RuleCall)cFeaturesAssignment_7.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Entity:
 		//	comment+=ML_COMMENT?
-		//	'entity' name=ValidID ('extends' superType=[Entity])? ('implements' interfaces+=[Interface] (','
+		//	abstract?='abstract'? 'entity' name=ValidID ('extends' superType=[Entity])? ('implements' interfaces+=[Interface] (','
 		//	interfaces+=[Interface])*)? '{'
 		//	features+=Feature*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//comment+=ML_COMMENT? 'entity' name=ValidID ('extends' superType=[Entity])? ('implements' interfaces+=[Interface] (','
-		//interfaces+=[Interface])*)? '{' features+=Feature* '}'
+		//comment+=ML_COMMENT? abstract?='abstract'? 'entity' name=ValidID ('extends' superType=[Entity])? ('implements'
+		//interfaces+=[Interface] (',' interfaces+=[Interface])*)? '{' features+=Feature* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//comment+=ML_COMMENT?
@@ -404,71 +421,77 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 		//ML_COMMENT
 		public RuleCall getCommentML_COMMENTTerminalRuleCall_0_0() { return cCommentML_COMMENTTerminalRuleCall_0_0; }
 		
+		//abstract?='abstract'?
+		public Assignment getAbstractAssignment_1() { return cAbstractAssignment_1; }
+		
+		//'abstract'
+		public Keyword getAbstractAbstractKeyword_1_0() { return cAbstractAbstractKeyword_1_0; }
+		
 		//'entity'
-		public Keyword getEntityKeyword_1() { return cEntityKeyword_1; }
+		public Keyword getEntityKeyword_2() { return cEntityKeyword_2; }
 		
 		//name=ValidID
-		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+		public Assignment getNameAssignment_3() { return cNameAssignment_3; }
 		
 		//ValidID
-		public RuleCall getNameValidIDParserRuleCall_2_0() { return cNameValidIDParserRuleCall_2_0; }
+		public RuleCall getNameValidIDParserRuleCall_3_0() { return cNameValidIDParserRuleCall_3_0; }
 		
 		//('extends' superType=[Entity])?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'extends'
-		public Keyword getExtendsKeyword_3_0() { return cExtendsKeyword_3_0; }
-		
-		//superType=[Entity]
-		public Assignment getSuperTypeAssignment_3_1() { return cSuperTypeAssignment_3_1; }
-		
-		//[Entity]
-		public CrossReference getSuperTypeEntityCrossReference_3_1_0() { return cSuperTypeEntityCrossReference_3_1_0; }
-		
-		//ID
-		public RuleCall getSuperTypeEntityIDTerminalRuleCall_3_1_0_1() { return cSuperTypeEntityIDTerminalRuleCall_3_1_0_1; }
-		
-		//('implements' interfaces+=[Interface] (',' interfaces+=[Interface])*)?
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//'implements'
-		public Keyword getImplementsKeyword_4_0() { return cImplementsKeyword_4_0; }
+		//'extends'
+		public Keyword getExtendsKeyword_4_0() { return cExtendsKeyword_4_0; }
 		
-		//interfaces+=[Interface]
-		public Assignment getInterfacesAssignment_4_1() { return cInterfacesAssignment_4_1; }
+		//superType=[Entity]
+		public Assignment getSuperTypeAssignment_4_1() { return cSuperTypeAssignment_4_1; }
 		
-		//[Interface]
-		public CrossReference getInterfacesInterfaceCrossReference_4_1_0() { return cInterfacesInterfaceCrossReference_4_1_0; }
+		//[Entity]
+		public CrossReference getSuperTypeEntityCrossReference_4_1_0() { return cSuperTypeEntityCrossReference_4_1_0; }
 		
 		//ID
-		public RuleCall getInterfacesInterfaceIDTerminalRuleCall_4_1_0_1() { return cInterfacesInterfaceIDTerminalRuleCall_4_1_0_1; }
+		public RuleCall getSuperTypeEntityIDTerminalRuleCall_4_1_0_1() { return cSuperTypeEntityIDTerminalRuleCall_4_1_0_1; }
+		
+		//('implements' interfaces+=[Interface] (',' interfaces+=[Interface])*)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'implements'
+		public Keyword getImplementsKeyword_5_0() { return cImplementsKeyword_5_0; }
+		
+		//interfaces+=[Interface]
+		public Assignment getInterfacesAssignment_5_1() { return cInterfacesAssignment_5_1; }
+		
+		//[Interface]
+		public CrossReference getInterfacesInterfaceCrossReference_5_1_0() { return cInterfacesInterfaceCrossReference_5_1_0; }
+		
+		//ID
+		public RuleCall getInterfacesInterfaceIDTerminalRuleCall_5_1_0_1() { return cInterfacesInterfaceIDTerminalRuleCall_5_1_0_1; }
 		
 		//(',' interfaces+=[Interface])*
-		public Group getGroup_4_2() { return cGroup_4_2; }
+		public Group getGroup_5_2() { return cGroup_5_2; }
 		
 		//','
-		public Keyword getCommaKeyword_4_2_0() { return cCommaKeyword_4_2_0; }
+		public Keyword getCommaKeyword_5_2_0() { return cCommaKeyword_5_2_0; }
 		
 		//interfaces+=[Interface]
-		public Assignment getInterfacesAssignment_4_2_1() { return cInterfacesAssignment_4_2_1; }
+		public Assignment getInterfacesAssignment_5_2_1() { return cInterfacesAssignment_5_2_1; }
 		
 		//[Interface]
-		public CrossReference getInterfacesInterfaceCrossReference_4_2_1_0() { return cInterfacesInterfaceCrossReference_4_2_1_0; }
+		public CrossReference getInterfacesInterfaceCrossReference_5_2_1_0() { return cInterfacesInterfaceCrossReference_5_2_1_0; }
 		
 		//ID
-		public RuleCall getInterfacesInterfaceIDTerminalRuleCall_4_2_1_0_1() { return cInterfacesInterfaceIDTerminalRuleCall_4_2_1_0_1; }
+		public RuleCall getInterfacesInterfaceIDTerminalRuleCall_5_2_1_0_1() { return cInterfacesInterfaceIDTerminalRuleCall_5_2_1_0_1; }
 		
 		//'{'
-		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
+		public Keyword getLeftCurlyBracketKeyword_6() { return cLeftCurlyBracketKeyword_6; }
 		
 		//features+=Feature*
-		public Assignment getFeaturesAssignment_6() { return cFeaturesAssignment_6; }
+		public Assignment getFeaturesAssignment_7() { return cFeaturesAssignment_7; }
 		
 		//Feature
-		public RuleCall getFeaturesFeatureParserRuleCall_6_0() { return cFeaturesFeatureParserRuleCall_6_0; }
+		public RuleCall getFeaturesFeatureParserRuleCall_7_0() { return cFeaturesFeatureParserRuleCall_7_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class FeatureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "cz.lzaruba.modelx.ModelX.Feature");
@@ -537,6 +560,7 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 	private final AbstractElementElements pAbstractElement;
 	private final InterfaceElements pInterface;
 	private final EnumElements pEnum;
+	private final EnumLiteralElements pEnumLiteral;
 	private final DataTypeElements pDataType;
 	private final ImportElements pImport;
 	private final PackageElements pPackage;
@@ -565,6 +589,7 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAbstractElement = new AbstractElementElements();
 		this.pInterface = new InterfaceElements();
 		this.pEnum = new EnumElements();
+		this.pEnumLiteral = new EnumLiteralElements();
 		this.pDataType = new DataTypeElements();
 		this.pImport = new ImportElements();
 		this.pPackage = new PackageElements();
@@ -640,7 +665,7 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 	//Interface:
 	//	comment+=ML_COMMENT?
 	//	annotations+=XAnnotation*
-	//	'interface' name=ValidID ('extends' supertypes+=[Interface] (',' supertypes+=[Interface])*)? '{'
+	//	'interface' name=ValidID ('extends' superTypes+=[Interface] (',' superTypes+=[Interface])*)? '{'
 	//	features+=Feature*
 	//	'}';
 	public InterfaceElements getInterfaceAccess() {
@@ -654,7 +679,7 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 	//Enum:
 	//	comment+=ML_COMMENT?
 	//	'enum' name=ValidID '{'
-	//	literals+=ID*
+	//	literals+=EnumLiteral*
 	//	'}';
 	public EnumElements getEnumAccess() {
 		return pEnum;
@@ -662,6 +687,16 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEnumRule() {
 		return getEnumAccess().getRule();
+	}
+	
+	//EnumLiteral:
+	//	name=ID;
+	public EnumLiteralElements getEnumLiteralAccess() {
+		return pEnumLiteral;
+	}
+	
+	public ParserRule getEnumLiteralRule() {
+		return getEnumLiteralAccess().getRule();
 	}
 	
 	//DataType:
@@ -701,7 +736,7 @@ public class ModelXGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Entity:
 	//	comment+=ML_COMMENT?
-	//	'entity' name=ValidID ('extends' superType=[Entity])? ('implements' interfaces+=[Interface] (','
+	//	abstract?='abstract'? 'entity' name=ValidID ('extends' superType=[Entity])? ('implements' interfaces+=[Interface] (','
 	//	interfaces+=[Interface])*)? '{'
 	//	features+=Feature*
 	//	'}';

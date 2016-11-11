@@ -69,6 +69,15 @@ public interface ModelXFactory extends EFactory
   Enum createEnum();
 
   /**
+   * Returns a new object of class '<em>Enum Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enum Literal</em>'.
+   * @generated
+   */
+  EnumLiteral createEnumLiteral();
+
+  /**
    * Returns a new object of class '<em>Data Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

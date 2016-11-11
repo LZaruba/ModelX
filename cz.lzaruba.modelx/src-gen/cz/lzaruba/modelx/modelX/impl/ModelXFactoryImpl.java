@@ -7,6 +7,7 @@ import cz.lzaruba.modelx.modelX.AbstractElement;
 import cz.lzaruba.modelx.modelX.DataType;
 import cz.lzaruba.modelx.modelX.ElementWithFeatures;
 import cz.lzaruba.modelx.modelX.Entity;
+import cz.lzaruba.modelx.modelX.EnumLiteral;
 import cz.lzaruba.modelx.modelX.Feature;
 import cz.lzaruba.modelx.modelX.Import;
 import cz.lzaruba.modelx.modelX.Interface;
@@ -79,6 +80,7 @@ public class ModelXFactoryImpl extends EFactoryImpl implements ModelXFactory
       case ModelXPackage.ABSTRACT_ELEMENT: return createAbstractElement();
       case ModelXPackage.INTERFACE: return createInterface();
       case ModelXPackage.ENUM: return createEnum();
+      case ModelXPackage.ENUM_LITERAL: return createEnumLiteral();
       case ModelXPackage.DATA_TYPE: return createDataType();
       case ModelXPackage.IMPORT: return createImport();
       case ModelXPackage.PACKAGE: return createPackage();
@@ -142,6 +144,17 @@ public class ModelXFactoryImpl extends EFactoryImpl implements ModelXFactory
   {
     EnumImpl enum_ = new EnumImpl();
     return enum_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EnumLiteral createEnumLiteral()
+  {
+    EnumLiteralImpl enumLiteral = new EnumLiteralImpl();
+    return enumLiteral;
   }
 
   /**

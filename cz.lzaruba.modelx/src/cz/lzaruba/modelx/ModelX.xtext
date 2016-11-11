@@ -15,7 +15,7 @@ AbstractElement:
 Interface:
 	(comment+=ML_COMMENT)?
 	(annotations+=XAnnotation)*
-	'interface' name=ValidID ('extends' supertypes+=[Interface] (',' supertypes+=[Interface])*)? '{'
+	'interface' name=ValidID ('extends' superTypes+=[Interface] (',' superTypes+=[Interface])*)? '{'
 		features+=Feature*
 	'}'
 ;
@@ -23,8 +23,12 @@ Interface:
 Enum:
 	(comment+=ML_COMMENT)?
 	'enum' name=ValidID '{'
-		literals+=ID*
+		literals+=EnumLiteral*
 	'}'
+;
+
+EnumLiteral:
+	name=ID
 ;
 
 DataType:
@@ -44,7 +48,7 @@ Package:
 
 Entity:
 	(comment+=ML_COMMENT)?
-	'entity' name=ValidID ('extends' superType=[Entity])? ('implements' interfaces+=[Interface] (',' interfaces+=[Interface])*)? '{'
+	(abstract?='abstract')? 'entity' name=ValidID ('extends' superType=[Entity])? ('implements' interfaces+=[Interface] (',' interfaces+=[Interface])*)? '{'
 		features+=Feature*
 	'}';
 

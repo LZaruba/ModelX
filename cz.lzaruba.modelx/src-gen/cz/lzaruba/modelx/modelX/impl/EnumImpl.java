@@ -3,15 +3,20 @@
  */
 package cz.lzaruba.modelx.modelX.impl;
 
+import cz.lzaruba.modelx.modelX.EnumLiteral;
 import cz.lzaruba.modelx.modelX.ModelXPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,14 +34,14 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 public class EnumImpl extends AbstractElementImpl implements cz.lzaruba.modelx.modelX.Enum
 {
   /**
-   * The cached value of the '{@link #getLiterals() <em>Literals</em>}' attribute list.
+   * The cached value of the '{@link #getLiterals() <em>Literals</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getLiterals()
    * @generated
    * @ordered
    */
-  protected EList<String> literals;
+  protected EList<EnumLiteral> literals;
 
   /**
    * <!-- begin-user-doc -->
@@ -64,13 +69,29 @@ public class EnumImpl extends AbstractElementImpl implements cz.lzaruba.modelx.m
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getLiterals()
+  public EList<EnumLiteral> getLiterals()
   {
     if (literals == null)
     {
-      literals = new EDataTypeEList<String>(String.class, this, ModelXPackage.ENUM__LITERALS);
+      literals = new EObjectContainmentEList<EnumLiteral>(EnumLiteral.class, this, ModelXPackage.ENUM__LITERALS);
     }
     return literals;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case ModelXPackage.ENUM__LITERALS:
+        return ((InternalEList<?>)getLiterals()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -102,7 +123,7 @@ public class EnumImpl extends AbstractElementImpl implements cz.lzaruba.modelx.m
     {
       case ModelXPackage.ENUM__LITERALS:
         getLiterals().clear();
-        getLiterals().addAll((Collection<? extends String>)newValue);
+        getLiterals().addAll((Collection<? extends EnumLiteral>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -139,23 +160,6 @@ public class EnumImpl extends AbstractElementImpl implements cz.lzaruba.modelx.m
         return literals != null && !literals.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (literals: ");
-    result.append(literals);
-    result.append(')');
-    return result.toString();
   }
 
 } //EnumImpl
