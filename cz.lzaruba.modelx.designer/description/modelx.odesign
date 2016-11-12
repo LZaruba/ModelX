@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="modelx" version="11.1.1.201610211630">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:filter="http://www.eclipse.org/sirius/diagram/description/filter/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="modelx" version="11.1.1.201610211630">
   <ownedViewpoints name="Model">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" titleExpression="feature:name" domainClass="Package" enablePopupBars="true">
       <filters xsi:type="filter:CompositeFilterDescription" name="Reference Edges">
@@ -42,7 +42,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="ElementWithFeatures" domainClass="ElementWithFeatures" childrenPresentation="List">
+        <containerMappings name="ElementWithFeatures" deletionDescription="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Element']" domainClass="ElementWithFeatures" childrenPresentation="List">
           <subNodeMappings name="Attributes" semanticCandidatesExpression="service:getAttributes" domainClass="Feature">
             <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="service:getLabel" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -53,18 +53,19 @@
           <subNodeMappings name="References" semanticCandidatesExpression="service:getReferences" domainClass="Feature">
             <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="service:getLabel" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>underline</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" showIcon="false" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='Entity']">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='Entity']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
           <conditionnalStyles predicateExpression="service:isInterface">
-            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" showIcon="false" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='Interface']">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='Interface']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -72,7 +73,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="service:isAbstract">
-            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" showIcon="false" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='AbstractEntity']">
+            <style xsi:type="style:FlatContainerStyleDescription" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='AbstractEntity']">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -80,7 +81,7 @@
             </style>
           </conditionnalStyles>
         </containerMappings>
-        <containerMappings name="Enum" domainClass="Enum" childrenPresentation="List">
+        <containerMappings name="Enum" deletionDescription="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Element']" domainClass="Enum" childrenPresentation="List">
           <subNodeMappings name="Literals" semanticCandidatesExpression="feature:literals" domainClass="EnumLiteral">
             <style xsi:type="style:BundledImageDescription" showIcon="false" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -88,14 +89,14 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='Enum']">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid" foregroundColor="//@userColorsPalettes[name=null]/@entries[name='Enum']">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <containerMappings name="DataType" domainClass="DataType" childrenPresentation="List">
+        <containerMappings name="DataType" deletionDescription="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Element']" domainClass="DataType" childrenPresentation="List">
           <subNodeMappings name="InstanceName" semanticCandidatesExpression="var:self" domainClass="DataType">
             <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="service:getLabel" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -112,6 +113,70 @@
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
+        <toolSections name="Entities">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Interface" containerMappings="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']" iconPath="/cz.lzaruba.modelx.edit/icons/full/obj16/Interface.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Interface" referenceName="elements"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Entity" containerMappings="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']" iconPath="/cz.lzaruba.modelx.edit/icons/full/obj16/Entity.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Entity" referenceName="elements"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Enum" containerMappings="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']" iconPath="/cz.lzaruba.modelx.edit/icons/full/obj16/Enum.gif">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Enum" referenceName="elements"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="DataType" containerMappings="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="DataType" referenceName="elements"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete Element">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:RemoveElement"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Features">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Feature" nodeMappings="//@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']/@subNodeMappings[name='Attributes'] //@ownedViewpoints[name='Model']/@ownedRepresentations[name='']/@defaultLayer/@containerMappings[name='ElementWithFeatures']/@subNodeMappings[name='References']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Feature" referenceName="features">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="New Feature"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <decorationDescriptionsSet>
+          <decorationDescriptions xsi:type="description:SemanticBasedDecoration" name="AbstractEntity" position="NORTH_WEST" decoratorPath="/cz.lzaruba.modelx.edit/icons/full/decorations/abstract.gif" preconditionExpression="service:isAbstract" domainClass="ElementWithFeatures"/>
+        </decorationDescriptionsSet>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="cz.lzaruba.modelx.designer.Services"/>
